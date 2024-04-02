@@ -1,0 +1,1446 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Túi Xách",
+      "image": "bag.svg",
+      "category": "bag",
+      "quantity": 50
+    },
+    {
+      "id": 2,
+      "name": "Giày",
+      "image": "shoes.svg",
+      "category": "shoes",
+      "quantity": 50
+    },
+    {
+      "id": 3,
+      "name": "Kính",
+      "image": "glasses.svg",
+      "category": "glasses",
+      "quantity": 50
+    },
+    {
+      "id": 4,
+      "name": "Áo",
+      "image": "jacket.svg",
+      "category": "shirt",
+      "quantity": 50
+    },
+    {
+      "id": 5,
+      "name": "Quần",
+      "image": "shorts.svg",
+      "category": "shorts",
+      "quantity": 50
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "shirt",
+      "name": "Áo jacket nam mùa đông",
+      "price": 320000,
+      "price_sale": 220000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-4.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 2,
+      "category": "shirt",
+      "name": "Áo jacket nam ",
+      "price": 580000,
+      "price_sale": 420000,
+      "image": "jacket-1.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 3,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 650000,
+      "price_sale": 320000,
+      "image": "jacket-5.jpg",
+      "image_hover": "jacket-6.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 4,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 720000,
+      "price_sale": 230000,
+      "image": "shirt-1.jpg",
+      "image_hover": "shirt-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 5,
+      "category": "shirt",
+      "name": "Áo kiểu nữ ",
+      "price": 380000,
+      "price_sale": 120000,
+      "image": "shirt-1.jpg",
+      "image_hover": "shirt-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 6,
+      "category": "shirt",
+      "name": "Váy ngắn",
+      "price": 280000,
+      "price_sale": 120000,
+      "image": "shirt-2.jpg",
+      "image_hover": "shirt-1.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 7,
+      "category": "shirt",
+      "name": "Áo luyện tập nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "1..avif",
+      "image_hover": "1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 8,
+      "category": "shirt",
+      "name": "Áo basic",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "a.avif",
+      "image_hover": "a.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 9,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "a2.avif",
+      "image_hover": "a3.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 10,
+      "category": "shirt",
+      "name": "Áo jacket nam ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "b.avif",
+      "image_hover": "b1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 11,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-1.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 12,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "c.avif",
+      "image_hover": "c1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 13,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg",
+      "image_hover": "c3.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 14,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-4.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 15,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-5.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 16,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-1.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 17,
+      "category": "glasses",
+      "name": "Kính mát nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses1.jpg",
+      "image_hover": "glasses1.jpg"
+    },
+    {
+      "id": 18,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses1.jpg",
+      "image_hover": "glasses2.jpg"
+    },
+    {
+      "id": 19,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses2.jpg",
+      "image_hover": "glasses3.jpg"
+    },
+    {
+      "id": 20,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses3.jpg",
+      "image_hover": "glasses4.jpg"
+    },
+    {
+      "id": 21,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses4.jpg",
+      "image_hover": "glasses5.jpg"
+    },
+    {
+      "id": 22,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses6.jpg",
+      "image_hover": "glasses6.jpg"
+    },
+    {
+      "id": 23,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses6.jpg",
+      "image_hover": "glasses7.jpg"
+    },
+    {
+      "id": 24,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses7.jpg",
+      "image_hover": "glasses8.jpg"
+    },
+    {
+      "id": 25,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses13.jpg",
+      "image_hover": "glasses9.jpg"
+    },
+    {
+      "id": 26,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses10.jpg",
+      "image_hover": "glasses10.jpg"
+    },
+    {
+      "id": 27,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses4.jpg",
+      "image_hover": "glasses11.jpg"
+    },
+    {
+      "id": 28,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses3.jpg",
+      "image_hover": "glasses12.jpg"
+    },
+    {
+      "id": 29,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses12.jpg",
+      "image_hover": "glasses13.jpg"
+    },
+    {
+      "id": 30,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses13.jpg",
+      "image_hover": "glasses14.jpg"
+    },
+    {
+      "id": 31,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses14.jpg",
+      "image_hover": "glasses15.jpg"
+    },
+    {
+      "id": 32,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses15.jpg",
+      "image_hover": "glasses16.jpg"
+    },
+    {
+      "id": 33,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-1.jpg",
+      "image_hover": "shoe-2.jpg"
+    },
+    {
+      "id": 34,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-2.jpg",
+      "image_hover": "shoe-3.jpg"
+    },
+    {
+      "id": 35,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-1_1.jpg",
+      "image_hover": "shoe-4.jpg"
+    },
+    {
+      "id": 36,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-2_1.jpg",
+      "image_hover": "shoe-5.jpg"
+    },
+    {
+      "id": 37,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoes1.jpg",
+      "image_hover": "shoes6.jpg"
+    },
+    {
+      "id": 38,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoes2.jpg",
+      "image_hover": "shoe-7.jpg"
+    },
+    {
+      "id": 39,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-7.jpg",
+      "image_hover": "shoe-8.jpg"
+    },
+    {
+      "id": 40,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-8.jpg",
+      "image_hover": "shoe-9.jpg"
+    },
+    {
+      "id": 41,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-9.jpg",
+      "image_hover": "shoe-10.jpg"
+    },
+    {
+      "id": 42,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-10.jpg",
+      "image_hover": "shoe-11.jpg"
+    },
+    {
+      "id": 43,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-11.jpg",
+      "image_hover": "shoe-12.jpg"
+    },
+    {
+      "id": 44,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-12.jpg",
+      "image_hover": "shoe-13.jpg"
+    },
+    {
+      "id": 45,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-13.jpg",
+      "image_hover": "shoe-14.jpg"
+    },
+    {
+      "id": 46,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-14.jpg",
+      "image_hover": "shoe-15.jpg"
+    },
+    {
+      "id": 47,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-15.jpg",
+      "image_hover": "shoe-16.jpg"
+    },
+    {
+      "id": 48,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-16.jpg",
+      "image_hover": "shoe-17.jpg"
+    },
+    {
+      "id": 50,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag.jpg",
+      "image_hover": "bag1.jpg"
+    },
+    {
+      "id": 51,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag2.jpg",
+      "image_hover": "bag3.jpg"
+    },
+    {
+      "id": 52,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag4.jpg",
+      "image_hover": "bag5.jpg"
+    },
+    {
+      "id": 53,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag6.jpg",
+      "image_hover": "bag7.jpg"
+    },
+    {
+      "id": 54,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag8.jpg",
+      "image_hover": "bag9.jpg"
+    },
+    {
+      "id": 55,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag10.jpg",
+      "image_hover": "bag11.jpg"
+    },
+    {
+      "id": 56,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag12.jpg",
+      "image_hover": "bag13.jpg"
+    },
+    {
+      "id": 57,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag14.jpg",
+      "image_hover": "bag16.jpg"
+    },
+    {
+      "id": 58,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag16.jpg",
+      "image_hover": "bag17.jpg"
+    },
+    {
+      "id": 59,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag18.jpg",
+      "image_hover": "bag21.jpg"
+    },
+    {
+      "id": 60,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag20.jpg",
+      "image_hover": "bag21.jpg"
+    },
+    {
+      "id": 61,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag22.jpg",
+      "image_hover": "bag23.jpg"
+    }
+  ],
+
+  "newArrivals": [
+    {
+      "id": 1,
+      "category": "newArrivals",
+      "name": "Tay áo ngắn tay",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg",
+      "hot": true
+    },
+    {
+      "id": 2,
+      "category": "newArrivals",
+      "name": "Áo hở bụng",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-2.jpg",
+      "hot": true
+    }
+  ],
+  "newArrivals1": [
+    {
+      "id": 1,
+      "category": "newArrivals1",
+      "name": "Tay áo ngắn tay",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "newArrivals1",
+      "name": "Áo hở bụng",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-2.jpg"
+    }
+  ],
+  "trending": [
+    {
+      "id": 1,
+      "category": "trending",
+      "name": "Giày chạy bộ và leo núi",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "sports-1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "trending",
+      "name": "Giày leo núi và chạy bộ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "sports-2.jpg"
+    }
+  ],
+  "trending1": [
+    {
+      "id": 1,
+      "category": "trending1",
+      "name": "Giày chạy bộ và leo núi",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "sports-1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "trending1",
+      "name": "Giày leo núi và chạy bộ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "sports-2.jpg"
+    }
+  ],
+  "topRate": [
+    {
+      "id": 1,
+      "category": "topRate",
+      "name": "Đồng hồ bỏ túi da Po",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jewellery-1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "topRate",
+      "name": "Vòng cổ trái tim hươu bạc",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jewellery-3.jpg"
+    }
+  ],
+  "topRate1": [
+    {
+      "id": 1,
+      "category": "topRate1",
+      "name": "Đồng hồ bỏ túi da Po",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jewellery-1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "topRate1",
+      "name": "Vòng cổ trái tim hươu bạc",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jewellery-3.jpg"
+    }
+  ],
+  "shirt": [
+    {
+      "id": 1,
+      "category": "shirt",
+      "name": "Áo jacket nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-4.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 2,
+      "category": "shirt",
+      "name": "Áo jacket nam ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-1.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 3,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-5.jpg",
+      "image_hover": "jacket-6.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 4,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg",
+      "image_hover": "shirt-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 5,
+      "category": "shirt",
+      "name": "Áo kiểu nữ ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg",
+      "image_hover": "shirt-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 6,
+      "category": "shirt",
+      "name": "Váy ngắn",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-2.jpg",
+      "image_hover": "shirt-1.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 7,
+      "category": "shirt",
+      "name": "Áo luyện tập nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "1..avif",
+      "image_hover": "1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 8,
+      "category": "shirt",
+      "name": "Áo basic",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "a.avif",
+      "image_hover": "a.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 9,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "a2.avif",
+      "image_hover": "a3.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 10,
+      "category": "shirt",
+      "name": "Áo jacket nam ",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "b.avif",
+      "image_hover": "b1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 11,
+      "category": "shirt",
+      "name": "Áo dài nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-1.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 12,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "c.avif",
+      "image_hover": "c1.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 13,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "shirt-1.jpg",
+      "image_hover": "c3.avif",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 14,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-4.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 15,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-5.jpg",
+      "image_hover": "jacket-2.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    },
+    {
+      "id": 16,
+      "category": "shirt",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 480000,
+      "price_sale": 320000,
+      "image": "jacket-3.jpg",
+      "image_hover": "jacket-1.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10,
+      "category_id": 4
+    }
+  ],
+  "glasses": [
+    {
+      "id": 1,
+      "category": "glasses",
+      "name": "Kính mát nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses1.jpg",
+      "image_hover": "glasses1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses1.jpg",
+      "image_hover": "glasses2.jpg"
+    },
+    {
+      "id": 3,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses2.jpg",
+      "image_hover": "glasses3.jpg"
+    },
+    {
+      "id": 4,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses3.jpg",
+      "image_hover": "glasses4.jpg"
+    },
+    {
+      "id": 5,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses4.jpg",
+      "image_hover": "glasses5.jpg"
+    },
+    {
+      "id": 6,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses6.jpg",
+      "image_hover": "glasses6.jpg"
+    },
+    {
+      "id": 7,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses6.jpg",
+      "image_hover": "glasses7.jpg"
+    },
+    {
+      "id": 8,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses7.jpg",
+      "image_hover": "glasses8.jpg"
+    },
+    {
+      "id": 9,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses13.jpg",
+      "image_hover": "glasses9.jpg"
+    },
+    {
+      "id": 10,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses10.jpg",
+      "image_hover": "glasses10.jpg"
+    },
+    {
+      "id": 11,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses4.jpg",
+      "image_hover": "glasses11.jpg"
+    },
+    {
+      "id": 12,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses3.jpg",
+      "image_hover": "glasses12.jpg"
+    },
+    {
+      "id": 13,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses12.jpg",
+      "image_hover": "glasses13.jpg"
+    },
+    {
+      "id": 14,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses13.jpg",
+      "image_hover": "glasses14.jpg"
+    },
+    {
+      "id": 15,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses14.jpg",
+      "image_hover": "glasses15.jpg"
+    },
+    {
+      "id": 16,
+      "category": "glasses",
+      "name": "Kính mát nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 3,
+      "image": "glasses15.jpg",
+      "image_hover": "glasses16.jpg"
+    }
+  ],
+  "shoes": [
+    {
+      "id": 1,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-1.jpg",
+      "image_hover": "shoe-2.jpg"
+    },
+    {
+      "id": 2,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-2.jpg",
+      "image_hover": "shoe-3.jpg"
+    },
+    {
+      "id": 3,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-1_1.jpg",
+      "image_hover": "shoe-4.jpg"
+    },
+    {
+      "id": 4,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-2_1.jpg",
+      "image_hover": "shoe-5.jpg"
+    },
+    {
+      "id": 5,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoes1.jpg",
+      "image_hover": "shoes6.jpg"
+    },
+    {
+      "id": 6,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoes2.jpg",
+      "image_hover": "shoe-7.jpg"
+    },
+    {
+      "id": 7,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-7.jpg",
+      "image_hover": "shoe-8.jpg"
+    },
+    {
+      "id": 8,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-8.jpg",
+      "image_hover": "shoe-9.jpg"
+    },
+    {
+      "id": 9,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-9.jpg",
+      "image_hover": "shoe-10.jpg"
+    },
+    {
+      "id": 10,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-10.jpg",
+      "image_hover": "shoe-11.jpg"
+    },
+    {
+      "id": 11,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-11.jpg",
+      "image_hover": "shoe-12.jpg"
+    },
+    {
+      "id": 12,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-12.jpg",
+      "image_hover": "shoe-13.jpg"
+    },
+    {
+      "id": 13,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-13.jpg",
+      "image_hover": "shoe-14.jpg"
+    },
+    {
+      "id": 14,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-14.jpg",
+      "image_hover": "shoe-15.jpg"
+    },
+    {
+      "id": 15,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-15.jpg",
+      "image_hover": "shoe-16.jpg"
+    },
+    {
+      "id": 16,
+      "category": "shoes",
+      "name": "Giày thể thao nam",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 2,
+      "image": "shoe-16.jpg",
+      "image_hover": "shoe-17.jpg"
+    }
+  ],
+  "bag": [
+    {
+      "id": 1,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag.jpg",
+      "image_hover": "bag1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag2.jpg",
+      "image_hover": "bag3.jpg"
+    },
+    {
+      "id": 3,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag4.jpg",
+      "image_hover": "bag5.jpg"
+    },
+    {
+      "id": 4,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag6.jpg",
+      "image_hover": "bag7.jpg"
+    },
+    {
+      "id": 5,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag8.jpg",
+      "image_hover": "bag9.jpg"
+    },
+    {
+      "id": 6,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag10.jpg",
+      "image_hover": "bag11.jpg"
+    },
+    {
+      "id": 7,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag12.jpg",
+      "image_hover": "bag13.jpg"
+    },
+    {
+      "id": 8,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag14.jpg",
+      "image_hover": "bag16.jpg"
+    },
+    {
+      "id": 9,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag16.jpg",
+      "image_hover": "bag17.jpg"
+    },
+    {
+      "id": 10,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag18.jpg",
+      "image_hover": "bag21.jpg"
+    },
+    {
+      "id": 11,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag20.jpg",
+      "image_hover": "bag21.jpg"
+    },
+    {
+      "id": 12,
+      "category": "bag",
+      "name": "Túi xách nữ",
+      "price": 480000,
+      "price_sale": 320000,
+      "category_id": 1,
+      "image": "bag22.jpg",
+      "image_hover": "bag23.jpg"
+    }
+  ],
+  "saleOff": [
+    {
+      "id": 1,
+      "category": "saleOff",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 622000,
+      "price_sale": 400000,
+      "image": "jacket-5.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10
+    },
+    {
+      "id": 2,
+      "category": "saleOff",
+      "name": "Áo khoác da nam mùa đông",
+      "price": 720000,
+      "price_sale": 42200,
+      "image": "jacket-3.jpg",
+      "description": "Áo khoác với chất liệu da cao cấp, giúp giữ ấm cơ thể trong mùa đông lạnh giá.",
+      "quantity": 10
+    }
+  ]
+}

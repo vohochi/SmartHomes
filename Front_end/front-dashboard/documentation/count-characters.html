@@ -1,0 +1,1522 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Count Characters - Documentation | Front - Admin &amp; Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="..\favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="..\assets\css\vendor.min.css">
+    <link rel="stylesheet" href="..\assets\vendor\icon-set\style.css">
+
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="..\assets\css\theme.min.css?v=1.0">
+    <link rel="stylesheet" href="..\assets\css\docs.css">
+  </head>
+
+  <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl navbar-vertical-aside-closed-mode navbar-vertical-aside-compact-mini-mode splitted-content">
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-light">
+      <div class="row justify-content-lg-center flex-grow-1">
+        <div class="col-lg-9">
+          <div class="navbar-nav-wrap">
+            <div class="navbar-brand-wrapper navbar-brand-wrapper-width">
+              <!-- Logo -->
+              <a class="navbar-brand d-flex align-items-center" href="..\index.html" aria-label="Front">
+                <img class="navbar-brand-logo d-none d-sm-block" src="..\assets\svg\logos\logo.svg" alt="Logo">
+                <img class="navbar-brand-logo-short d-block d-sm-none" src="..\assets\svg\logos\logo-short.svg" alt="Logo">
+              </a>
+              <!-- End Logo -->
+            </div>
+
+            <div class="navbar-nav-wrap-content-left">
+              <!-- Search Form -->
+              <form id="docsSearch" class="position-relative" data-hs-list-options='{
+                     "searchMenu": true,
+                     "keyboard": true,
+                     "item": "searchTemplate",
+                     "valueNames": ["component", "category", {"name": "link", "attr": "href"}],
+                     "empty": "#searchNoResults"
+                   }'>
+                <!-- Input Group -->
+                <div class="input-group input-group-merge navbar-input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="tio-search"></i>
+                    </div>
+                  </div>
+
+                  <input type="search" class="search form-control" placeholder="Search in front" aria-label="Search in front">
+
+                  <a class="input-group-append" href="javascript:;">
+                    <span class="input-group-text">
+                      <i id="clearSearchResultsIcon" class="tio-clear" style="display: none;"></i>
+                    </span>
+                  </a>
+                </div>
+                <!-- End Input Group -->
+
+                <!-- List -->
+                <div class="list dropdown-menu w-100 overflow-auto" style="max-height: 16rem;"></div>
+                <!-- End List -->
+
+                <!-- Empty -->
+                <div id="searchNoResults" style="display: none;">
+                  <div class="text-center p-4">
+                    <img class="mb-3" src="..\assets\svg\illustrations\sorry.svg" alt="Image Description" style="width: 7rem;">
+                    <p class="mb-0">No Results</p>
+                  </div>
+                </div>
+                <!-- End Empty -->
+              </form>
+
+              <!-- List Item Template -->
+              <div class="d-none">
+                <div id="searchTemplate" class="dropdown-item">
+                  <a class="d-block link" href="#">
+                    <span class="category d-block text-muted mb-1"></span>
+                    <span class="component font-weight-bold text-dark"></span>
+                  </a>
+                </div>
+              </div>
+              <!-- End List Item Template -->
+              <!-- End Search Form -->
+            </div>
+
+            <!-- Secondary Content -->
+            <div class="navbar-nav-wrap-content-right">
+              <!-- Navbar -->
+              <ul class="navbar-nav align-items-center flex-row">
+                <li class="nav-item d-lg-block">
+                  <!-- Navbar Vertical Toggle -->
+                  <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-ghost-secondary rounded-circle" data-toggle="tooltip" data-placement="right" title="Collapse">
+                    <i class="tio-first-page navbar-vertical-aside-toggle-short-align"></i>
+                    <i class="tio-last-page navbar-vertical-aside-toggle-full-align"></i>
+                  </button>
+                  <!-- End Navbar Vertical Toggle -->
+                </li>
+
+                <li class="nav-item d-none d-md-block">
+                  <a class="btn btn-primary" href="..\index.html">Go to Dashboard</a>
+                </li>
+              </ul>
+              <!-- End Navbar -->
+            </div>
+            <!-- End Secondary Content -->
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <!-- Navbar Vertical -->
+    <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-lg navbar-bordered splitted-content-navbar">
+      <div class="navbar-vertical-container">
+        <!-- Content -->
+        <div class="js-nav-scroller navbar-vertical-content" data-hs-nav-scroller-options='{
+              "type": "vertical",
+              "target": ".navbar-vertical-without-icons .active"
+             }'>
+          <!-- Mini Content -->
+          <div class="splitted-content-mini navbar-dark h-100 py-2">
+            <a class="navbar-brand d-flex justify-content-center mb-1" href="..\index.html" aria-label="Front">
+              <img class="navbar-brand-logo-short" src="..\assets\svg\logos\logo-short-white.svg" alt="Logo">
+            </a>
+
+            <div class="navbar-vertical-content">
+              <ul class="navbar-nav navbar-nav-lg nav-tabs">
+                <!-- Dashboards -->
+                <li class="navbar-vertical-aside-has-menu ">
+                  <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Dashboards">
+                    <i class="tio-home-vs-1-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboards</span>
+                  </a>
+
+                  <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\index.html" title="Default">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Default</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\dashboard-alternative.html" title="Alternative">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Alternative</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Dashboards -->
+
+                <li class="nav-item">
+                  <small class="nav-subtitle" title="Pages">Pages</small>
+                  <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                </li>
+
+                <!-- Pages -->
+                <li class="navbar-vertical-aside-has-menu ">
+                  <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Pages">
+                    <i class="tio-pages-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Pages</span>
+                  </a>
+
+                  <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Users">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Users</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\users.html" title="Overview">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Overview</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\users-leaderboard.html" title="Leaderboard">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Leaderboard</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\users-add-user.html" title="Add user">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Add user <span class="badge badge-info badge-pill ml-1">Hot</span></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="User profile">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">User profile <span class="badge badge-primary badge-pill ml-1">5</span></span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\user-profile.html" title="Profile">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Profile</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\user-profile-teams.html" title="Teams">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Teams</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\user-profile-projects.html" title="Projects">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Projects</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\user-profile-connections.html" title="Connections">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Connections</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\user-profile-my-profile.html" title="My profile">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">My profile</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Account">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Account</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\account-settings.html" title="Settings">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Settings</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\account-billing.html" title="Billing">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Billing</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\account-invoice.html" title="Invoice">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Invoice</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal" title="Invoice receipt">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Invoice receipt</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\account-api-keys.html" title="API Keys">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">API Keys</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="E-commerce">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">E-commerce</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\ecommerce.html" title="Overview">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Overview</span>
+                          </a>
+                        </li>
+
+                        <li class="navbar-vertical-aside-has-menu ">
+                          <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Products">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Products</span>
+                          </a>
+
+                          <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-products.html" title="Products">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Products</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-product-details.html" title="Product Details">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Product Details</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-add-product.html" title="Add Product">
+                                <span class="tio-circle-outlined nav-indicator-icon"></span>
+                                <span class="text-truncate">Add Product</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="navbar-vertical-aside-has-menu ">
+                          <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Orders">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Orders</span>
+                          </a>
+
+                          <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-orders.html" title="Orders">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Orders</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-order-details.html" title="Order Details">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Order Details</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="navbar-vertical-aside-has-menu ">
+                          <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Customers">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Customers</span>
+                          </a>
+
+                          <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-customers.html" title="Customers">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Customers</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-customer-details.html" title="Customer Details">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Customer Details</span>
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="..\ecommerce-add-customers.html" title="Add Customers">
+                                <span class="tio-circle nav-indicator-icon"></span>
+                                <span class="text-truncate">Add Customers</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\ecommerce-manage-reviews.html" title="Manage Reviews">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Manage Reviews</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\ecommerce-checkout.html" title="Checkout">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Checkout</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Projects">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Projects</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\projects.html" title="Overview">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Overview</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\projects-timeline.html" title="Timeline">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Timeline</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Project">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Project</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\project.html" title="Overview">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Overview</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\project-files.html" title="Files">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Files <span class="badge badge-info badge-pill ml-1">Hot</span></span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\project-activity.html" title="Activity">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Activity</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\project-teams.html" title="Teams">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Teams</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\project-settings.html" title="Settings">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Settings</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\referrals.html" title="Referrals">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Referrals</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Pages -->
+
+                <!-- Apps -->
+                <li class="navbar-vertical-aside-has-menu ">
+                  <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Apps">
+                    <i class="tio-apps nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Apps <span class="badge badge-info badge-pill ml-1">Hot</span></span>
+                  </a>
+
+                  <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\apps-kanban.html" title="Kanban">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Kanban</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\apps-calendar.html" title="Calendar">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Calendar <span class="badge badge-info badge-pill ml-1">New</span></span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\apps-invoice-generator.html" title="Invoice generator">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Invoice generator</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\apps-file-manager.html" title="File manager">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">File manager</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Apps -->
+
+                <!-- Authentication -->
+                <li class="navbar-vertical-aside-has-menu ">
+                  <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Authentication">
+                    <i class="tio-lock-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Authentication</span>
+                  </a>
+
+                  <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Sign in">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Sign in</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-signin-basic.html" title="Basic">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Basic</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-signin-cover.html" title="Cover">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Cover</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Sign up">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Sign up</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-signup-basic.html" title="Basic">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Basic</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-signup-cover.html" title="Cover">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Cover</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Reset password">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Reset password</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-reset-password-basic.html" title="Basic">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Basic</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-reset-password-cover.html" title="Cover">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Cover</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Email verification">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Email verification</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-email-verification-basic.html" title="Basic">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Basic</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-email-verification-cover.html" title="Cover">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Cover</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                      <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="2-step Verification">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">2-step Verification</span>
+                      </a>
+
+                      <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-two-step-verification-basic.html" title="Basic">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Basic</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link " href="..\authentication-two-step-verification-cover.html" title="Cover">
+                            <span class="tio-circle-outlined nav-indicator-icon"></span>
+                            <span class="text-truncate">Cover</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="javascript:;" data-toggle="modal" data-target="#welcomeMessageModal" title="Welcome message">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Welcome message</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\error-404.html" title="Error 404">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Error 404</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link " href="..\error-500.html" title="Error 500">
+                        <span class="tio-circle nav-indicator-icon"></span>
+                        <span class="text-truncate">Error 500</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Authentication -->
+
+                <li class="nav-item ">
+                  <a class="js-nav-tooltip-link nav-link " href="..\welcome-page.html" title="Welcome page" data-placement="left">
+                    <i class="tio-visible-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Welcome page</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <small class="nav-subtitle" title="Layouts">Layouts</small>
+                  <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                </li>
+
+                <li class="nav-item ">
+                  <a class="js-nav-tooltip-link nav-link " href="..\layouts\layouts.html" title="Layouts" data-placement="left">
+                    <i class="tio-dashboard-vs-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Layouts</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <div class="nav-divider"></div>
+                </li>
+
+                <li class="nav-item">
+                  <small class="nav-subtitle" title="Documentation">Documentation</small>
+                  <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                </li>
+
+                <li class="nav-item ">
+                  <a class="js-nav-tooltip-link nav-link" href="index.html" title="Documentation" data-placement="left">
+                    <i class="tio-book-opened nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Documentation <span class="badge badge-primary badge-pill ml-1">v1.0</span></span>
+                  </a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="js-nav-tooltip-link nav-link" href="typography.html" title="Components" data-placement="left">
+                    <i class="tio-layers-outlined nav-icon"></i>
+                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Components</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-auto">
+              <div class="h4 text-center">
+                <span class="badge badge-light badge-pill">v1.0</span>
+              </div>
+
+              <ul class="navbar-nav navbar-nav-lg nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://htmlstream.com/contact-us" target="_blank" data-toggle="tooltip" data-placement="right" title="Get support">
+                    <i class="tio-sms-chat-outlined nav-icon"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- End Mini Content -->
+
+          <ul class="navbar-nav nav-tabs navbar-vertical-without-icons py-3 mb-3">
+            <li class="nav-item">
+              <small class="nav-subtitle d-block">Getting Started</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="index.html">Introduction</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="gulp.html">Gulp</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="customization.html">Customization</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="credits.html">Credits</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="changelog.html">Changelog</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Content</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="typography.html">Typography</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="gutters.html">Gutters</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="icon-set.html">Icon Set</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Components</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="alerts.html">Alerts</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="avatars.html">Avatars</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="badge.html">Badge</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="breadcrumb.html">Breadcrumb</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="buttons.html">Buttons</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="card.html">Card</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="collapse.html">Collapse</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="column-divider.html">Column Divider</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="divider.html">Divider</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="dropdowns.html">Dropdowns</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="icons.html">Icons</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="legend-indicator.html">Legend Indicator</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="list-group.html">List Group</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="lists.html">Lists</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="modal.html">Modal</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="page-header.html">Page Header</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="pagination.html">Pagination</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="popovers.html">Popovers</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="progress.html">Progress</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="profile-cover.html">Profile Cover</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="spinners.html">Spinners</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="steps.html">Steps</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="tab.html">Tab</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="toasts.html">Toasts</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="tooltips.html">Tooltips</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Utilities</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="borders.html">Borders</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="colors.html">Colors</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="positions.html">Positions</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="shadows.html">Shadows</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="sizing.html">Sizing</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="text.html">Text</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="others.html">Others</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Navbars</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="navbar.html">Navbar</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="navs.html">Navs</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="mega-menu.html">Mega Menu</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="navbar-vertical-aside.html">Navbar Vertical Aside</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Tables</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="tables.html">Tables</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="datatables.html">Datatables</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="table-editable-rows.html">Editable Rows</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="table-sticky-header.html">Sticky Header</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Basic forms</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="basic-forms.html">Basic Forms</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="checks-and-switches.html">Checks &amp; Switches</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="input-group.html">Input Group</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Advanced forms</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="select2.html">Advanced Select (Select2)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="flatpickr.html">Datepicker (Flatpickr)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="daterangepicker.html">Date Range Picker</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="calendar.html">Calendar (Fullcalendar)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="file-attach.html">File Attachments</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="dropzone.html">Drag’ n’ Drop File Uploads (Dropzone)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="quill.html">WYSIWYG Editor (Quill)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="clipboard.html">Copy to Clipboard</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="quantity-counter.html">Quantity Counter</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="input-mask.html">Input Mask</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="step-forms.html">Step Forms (Wizards)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="ion-range-slider.html">Range Slider</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="tagify.html">Input Tags (Tagify)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="add-field.html">Add Field(s)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="toggle-password.html">Toggle Password(s)</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap active" href="count-characters.html">Count Characters</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="form-search.html">Form Search</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="toggle-switch.html">Toggle Switch</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="password-strength.html">Password Strength</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="google-recaptcha.html">Google reCAPTCHA</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="form-validation.html">Form Validation</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Charts</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="chartjs.html">Chart.js</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="counter.html">Counter</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="circles.html">Circles</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Maps</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="leaflet.html">Leaflet</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="jvectormap.html">jVectorMap</a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <small class="nav-subtitle d-block">Others</small>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="fancybox.html">FancyBox</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="unfold.html">Unfold</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="scrollspy.html">Scrollspy</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="sortablejs.html">Sortablejs</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="sticky-block.html">Sticky Block</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-wrap " href="go-to.html">Go-to</a>
+            </li>
+          </ul>
+
+          <!-- Navbar Vertical Toggle -->
+          <div class="position-absolute top-0 right-0 mt-3 mr-4">
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
+              <i class="tio-clear tio-lg"></i>
+            </button>
+          </div>
+          <!-- End Navbar Vertical Toggle -->
+        </div>
+        <!-- End Content -->
+      </div>
+    </aside>
+    <!-- End Navbar Vertical -->
+
+    <main id="content" role="main" class="main splitted-content-main bg-light">
+      <!-- Fluid Content -->
+      <div class="splitted-content-fluid content-space">
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-9">
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="row align-items-center">
+                <div class="col-sm">
+                  <h1 class="page-header-title">Count Characters</h1>
+                  <p class="lead">Show count characters in the field.</p>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Header -->
+
+            <!-- Heading -->
+            <h2 id="how-to-use" class="hs-docs-heading">
+              How to use <a class="anchorjs-link" href="#how-to-use" aria-label="Anchor" data-anchorjs-icon="#"></a>
+            </h2>
+            <!-- End Heading -->
+
+            <p>Copy-paste the following <code>&lt;script&gt;</code> near the end of your pages under <em><u>JS Implementing Plugins</u></em> to enable it.</p>
+
+            <pre class="rounded mb-4">
+              <code class="language-html" data-lang="html">
+                &lt;script src="../assets/vendor/hs-count-characters/dist/js/hs-count-characters.js"&gt;&lt;/script&gt;
+              </code>
+            </pre>
+
+            <p>Copy-paste the init function under <em><u>JS Plugins Init.</u></em>, before the closing <code>&lt;/body&gt;</code> tag, to enable it.</p>
+
+            <pre class="rounded">
+              <code class="language-html" data-lang="html">
+                &lt;script&gt;
+                  $(document).on('ready', function () {
+                    // INITIALIZATION OF COUNT CHARACTERS
+                    // =======================================================
+                    $('.js-count-characters').each(function () {
+                      new HSCountCharacters($(this)).init()
+                    });
+                  });
+                &lt;/script&gt;
+              </code>
+            </pre>
+
+            <!-- Heading -->
+            <h2 id="basic-examples" class="hs-docs-heading">
+              Basic examples <a class="anchorjs-link" href="#basic-examples" aria-label="Anchor" data-anchorjs-icon="#"></a>
+            </h2>
+            <!-- End Heading -->
+
+            <!-- Card -->
+            <div class="card">
+              <!-- Header -->
+              <div class="card-header">
+                <!-- Nav -->
+                <ul class="nav nav-segment" id="navTab1" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="nav-resultTab1" data-toggle="pill" href="#nav-result1" role="tab" aria-controls="nav-result1" aria-selected="true">Preview</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-htmlTab1" data-toggle="pill" href="#nav-html1" role="tab" aria-controls="nav-html1" aria-selected="false">HTML</a>
+                  </li>
+                </ul>
+                <!-- End Nav -->
+              </div>
+              <!-- End Header -->
+
+              <!-- Tab Content -->
+              <div class="tab-content" id="navTabContent1">
+                <div class="tab-pane fade p-4 show active" id="nav-result1" role="tabpanel" aria-labelledby="nav-resultTab1">
+                  <!-- Form Group -->
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="reviewLabel" class="input-label">Review</label>
+
+                      <span id="basicCountCharacters" class="text-muted"></span>
+                    </div>
+                    <textarea class="js-count-characters form-control" id="reviewLabel" placeholder="Textarea field" rows="4" data-hs-count-characters-options='{
+                                "output": "#basicCountCharacters"
+                              }'>As always, all Htmlstream products are excellent with a very good personalization.</textarea>
+                  </div>
+                  <!-- End Form Group -->
+                </div>
+
+                <div class="tab-pane fade" id="nav-html1" role="tabpanel" aria-labelledby="nav-htmlTab1">
+                  <pre>
+                    <code class="language-markup" data-lang="html">
+                      &lt;!-- Form Group --&gt;
+                      &lt;div class="form-group"&gt;
+                        &lt;div class="d-flex justify-content-between"&gt;
+                          &lt;label for="reviewLabel" class="input-label"&gt;Review&lt;/label&gt;
+
+                          &lt;span id="basicCountCharacters" class="text-muted"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;textarea class="js-count-characters form-control" id="reviewLabel" placeholder="Textarea field" rows="4"
+                                  data-hs-count-characters-options='{
+                                    "output": "#basicCountCharacters"
+                                  }'&gt;As always, all Htmlstream products are excellent with a very good personalization.&lt;/textarea&gt;
+                      &lt;/div&gt;
+                      &lt;!-- End Form Group --&gt;
+                    </code>
+                  </pre>
+                </div>
+              </div>
+              <!-- End Tab Content -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Heading -->
+            <h2 id="max-length" class="hs-docs-heading">
+              Max length <a class="anchorjs-link" href="#max-length" aria-label="Anchor" data-anchorjs-icon="#"></a>
+            </h2>
+            <!-- End Heading -->
+
+            <p>Use <code>maxlength="*" attribute</code></p>
+
+            <!-- Card -->
+            <div class="card">
+              <!-- Header -->
+              <div class="card-header">
+                <!-- Nav -->
+                <ul class="nav nav-segment" id="navTab2" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="nav-resultTab2" data-toggle="pill" href="#nav-result2" role="tab" aria-controls="nav-result2" aria-selected="true">Preview</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-htmlTab2" data-toggle="pill" href="#nav-html2" role="tab" aria-controls="nav-html2" aria-selected="false">HTML</a>
+                  </li>
+                </ul>
+                <!-- End Nav -->
+              </div>
+              <!-- End Header -->
+
+              <!-- Tab Content -->
+              <div class="tab-content" id="navTabContent2">
+                <div class="tab-pane fade p-4 show active" id="nav-result2" role="tabpanel" aria-labelledby="nav-resultTab2">
+                  <!-- Form Group -->
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="reviewLabelModalEg" class="input-label">Review</label>
+
+                      <span id="maxLengthCountCharacters" class="text-muted"></span>
+                    </div>
+                    <textarea class="js-count-characters form-control" id="reviewLabelModalEg" placeholder="Textarea field" rows="4" maxlength="100" data-hs-count-characters-options='{
+                                "output": "#maxLengthCountCharacters"
+                              }'>As always, all Htmlstream products are excellent with a very good personalization.</textarea>
+                  </div>
+                  <!-- End Form Group -->
+                </div>
+
+                <div class="tab-pane fade" id="nav-html2" role="tabpanel" aria-labelledby="nav-htmlTab2">
+                  <pre>
+                    <code class="language-markup" data-lang="html">
+                      &lt;!-- Form Group --&gt;
+                      &lt;div class="form-group"&gt;
+                        &lt;div class="d-flex justify-content-between"&gt;
+                          &lt;label for="reviewLabelModalEg" class="input-label"&gt;Review&lt;/label&gt;
+
+                          &lt;span id="maxLengthCountCharacters" class="text-muted"&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;textarea class="js-count-characters form-control" id="reviewLabelModalEg" placeholder="Textarea field" rows="4" maxlength="100"
+                                  data-hs-count-characters-options='{
+                                    "output": "#maxLengthCountCharacters"
+                                  }'&gt;As always, all Htmlstream products are excellent with a very good personalization.&lt;/textarea&gt;
+                      &lt;/div&gt;
+                      &lt;!-- End Form Group --&gt;
+                    </code>
+                  </pre>
+                </div>
+              </div>
+              <!-- End Tab Content -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Heading -->
+            <h2 id="modal-example" class="hs-docs-heading">
+              Modal example <a class="anchorjs-link" href="#modal-example" aria-label="Anchor" data-anchorjs-icon="#"></a>
+            </h2>
+            <!-- End Heading -->
+
+            <!-- Card -->
+            <div class="card">
+              <!-- Header -->
+              <div class="card-header">
+                <!-- Nav -->
+                <ul class="nav nav-segment" id="navTab3" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="nav-resultTab3" data-toggle="pill" href="#nav-result3" role="tab" aria-controls="nav-result3" aria-selected="true">Preview</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-htmlTab3" data-toggle="pill" href="#nav-html3" role="tab" aria-controls="nav-html3" aria-selected="false">HTML</a>
+                  </li>
+                </ul>
+                <!-- End Nav -->
+              </div>
+              <!-- End Header -->
+
+              <!-- Tab Content -->
+              <div class="tab-content" id="navTabContent3">
+                <div class="tab-pane fade p-4 show active" id="nav-result3" role="tabpanel" aria-labelledby="nav-resultTab3">
+                  <!-- Button Trigger Modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Open modal
+                  </button>
+                  <!-- End Button Trigger Modal -->
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <!-- Header -->
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Count characters</h5>
+                          <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close">
+                            <i class="tio-clear tio-lg" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Body -->
+                        <div class="modal-body">
+                          <!-- Form Group -->
+                          <div class="form-group">
+                            <div class="d-flex justify-content-between">
+                              <label for="reviewModalEgLabel" class="input-label">Review</label>
+
+                              <span id="basicCountCharactersModalEg" class="text-muted"></span>
+                            </div>
+                            <textarea class="js-count-characters form-control" id="reviewModalEgLabel" placeholder="Textarea field" rows="4" data-hs-count-characters-options='{
+                                        "output": "#basicCountCharactersModalEg"
+                                      }'>As always, all Htmlstream products are excellent with a very good personalization.</textarea>
+                          </div>
+                          <!-- End Form Group -->
+                        </div>
+                        <!-- End Body -->
+
+                        <!-- Footer -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Continue</button>
+                        </div>
+                        <!-- End Footer -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal -->
+                </div>
+
+                <div class="tab-pane fade" id="nav-html3" role="tabpanel" aria-labelledby="nav-htmlTab3">
+                  <pre>
+                    <code class="language-markup" data-lang="html">
+                      &lt;!-- Button Trigger Modal --&gt;
+                      &lt;button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"&gt;
+                        Open modal
+                      &lt;/button&gt;
+                      &lt;!-- End Button Trigger Modal --&gt;
+
+                      &lt;!-- Modal --&gt;
+                      &lt;div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"&gt;
+                        &lt;div class="modal-dialog" role="document"&gt;
+                          &lt;div class="modal-content"&gt;
+                            &lt;!-- Header --&gt;
+                            &lt;div class="modal-header"&gt;
+                              &lt;h5 class="modal-title" id="exampleModalLabel"&gt;Count characters&lt;/h5&gt;
+                              &lt;button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close"&gt;
+                                &lt;i class="tio-clear tio-lg" aria-hidden="true"&gt;&lt;/i&gt;
+                              &lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;!-- End Header --&gt;
+
+                            &lt;!-- Body --&gt;
+                            &lt;div class="modal-body"&gt;
+                              &lt;!-- Form Group --&gt;
+                              &lt;div class="form-group"&gt;
+                                &lt;div class="d-flex justify-content-between"&gt;
+                                  &lt;label for="reviewModalEgLabel" class="input-label"&gt;Review&lt;/label&gt;
+
+                                  &lt;span id="basicCountCharactersModalEg" class="text-muted"&gt;&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;textarea class="js-count-characters form-control" id="reviewModalEgLabel" placeholder="Textarea field" rows="4"
+                                          data-hs-count-characters-options='{
+                                            "output": "#basicCountCharactersModalEg"
+                                          }'&gt;As always, all Htmlstream products are excellent with a very good personalization.&lt;/textarea&gt;
+                              &lt;/div&gt;
+                              &lt;!-- End Form Group --&gt;
+                            &lt;/div&gt;
+                            &lt;!-- End Body --&gt;
+
+                            &lt;!-- Footer --&gt;
+                            &lt;div class="modal-footer"&gt;
+                              &lt;button type="button" class="btn btn-white" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                              &lt;button type="button" class="btn btn-primary"&gt;Continue&lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;!-- End Footer --&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;!-- End Modal --&gt;
+                    </code>
+                  </pre>
+                </div>
+              </div>
+              <!-- End Tab Content -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Heading -->
+            <h2 id="methods" class="hs-docs-heading">
+              Methods <a class="anchorjs-link" href="#methods" aria-label="Anchor" data-anchorjs-icon="#"></a>
+            </h2>
+            <!-- End Heading -->
+
+            <!-- Card -->
+            <div class="card overflow-hidden">
+              <!-- Table -->
+              <div class="table-responsive">
+                <table class="table table-thead-bordered card-table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Parameters</th>
+                      <th style="width: 50%;">Description</th>
+                      <th class="text-nowrap">Default value</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p><code>output</code></p>
+                      </td>
+                      <td>Element to display the number of characters.</td>
+                      <td><code>null</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- End Table -->
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Fluid Content -->
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    <!-- Go to Top -->
+    <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;" data-hs-go-to-options='{
+         "offsetTop": 700,
+         "position": {
+           "init": {
+             "right": 32
+           },
+           "show": {
+             "bottom": 32
+           },
+           "hide": {
+             "bottom": -32
+           }
+         }
+       }'>
+      <i class="tio-chevron-up"></i>
+    </a>
+    <!-- End Go to Top -->
+    <!-- ========== END SECONDARY CONTENTS ========== -->
+
+
+    <!-- JS Implementing Plugins -->
+    <script src="..\assets\js\vendor.min.js"></script>
+
+    <!-- JS Front -->
+    <script src="..\assets\js\theme.min.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+      $(document).on('ready', function () {
+        // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
+        // =======================================================
+        var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
+
+
+        // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
+        // =======================================================
+        $('.js-nav-tooltip-link').tooltip({ boundary: 'window' })
+
+
+        // INITIALIZATION OF GO TO
+        // =======================================================
+        $('.js-go-to').each(function () {
+          var goTo = new HSGoTo($(this)).init();
+        });
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        $('.js-nav-scroller').each(function () {
+          new HsNavScroller($(this), {
+            delay: 400,
+          }).init()
+        });
+
+
+        // INITIALIZATION OF LISTJS COMPONENT
+        // =======================================================
+        var docsSearch = $.HSCore.components.HSList.init('#docsSearch');
+
+
+        // GET JSON FILE RESULTS
+        // =======================================================
+        $.getJSON('../assets/json/docs-search.json', function(data) {
+          docsSearch.add(data);
+        });
+
+        
+        // INITIALIZATION OF COUNT CHARACTERS
+        // =======================================================
+        $('.js-count-characters').each(function () {
+          new HSCountCharacters($(this)).init()
+        });
+      });
+    </script>
+
+    <!-- IE Support -->
+    <script>
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="../assets/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+    </script>
+  </body>
+</html>
