@@ -527,3 +527,53 @@ const addCart = (id) => __awaiter(void 0, void 0, void 0, function* () {
         window.location.href = 'cart.html';
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const userActionButton = document.getElementById('user-action-btn');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const logoutButton = document.getElementById('logout-btn');
+    if (userData && userData.img) {
+        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
+        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+    }
+    else {
+        userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+    }
+    const token = localStorage.getItem('token');
+    if (token) {
+        fetch('http://localhost:3000/api/token/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token: token }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+            if (data.message === 'Token is valid.') {
+                console.log('Mã thông báo vẫn còn hiệu lực');
+            }
+            else {
+                console.log('Mã thông báo không hợp lệ hoặc hết hạn');
+                localStorage.removeItem('token');
+                alert('Vui lòng đăng nhập lại Tài khoản của bạn');
+                window.location.reload();
+            }
+        })
+            .catch((error) => {
+            console.error('Error:', error);
+            window.location.href = 'login.html';
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
+    });
+});

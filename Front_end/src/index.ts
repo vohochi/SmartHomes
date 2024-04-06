@@ -659,3 +659,64 @@ if (count) {
 // setInterval(() => {
 //   for (let i = 0; i <= slideShow.length; i++)
 // }, 1000);
+
+// profile
+document.addEventListener('DOMContentLoaded', function () {
+  const userActionButton = document.getElementById('user-action-btn');
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const logoutButton = document.getElementById('logout-btn');
+
+  if (userData && userData.img) {
+    // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
+    userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
+    logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+  } else {
+    // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập
+    userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+  }
+  const token = localStorage.getItem('token');
+  if (token) {
+    fetch('http://localhost:3000/api/token/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token: token }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === 'Token is valid.') {
+          console.log('Mã thông báo vẫn còn hiệu lực');
+          // Token is still valid, perform your actions here.
+        } else {
+          console.log('Mã thông báo không hợp lệ hoặc hết hạn');
+          // Token is not valid or expired, redirect to login page.
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+
+          alert('Vui lòng đăng nhập lại Tài khoản của bạn');
+          window.location.reload();
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        window.location.href = 'login.html';
+      });
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const logoutButton = document.getElementById('logout-btn');
+
+  logoutButton.addEventListener('click', function () {
+    // Xóa token và thông tin người dùng khỏi localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    // Chuyển hướng người dùng về trang đăng nhập hoặc trang chủ
+    window.location.href = 'login.html';
+  });
+});

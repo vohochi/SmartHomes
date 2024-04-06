@@ -211,6 +211,7 @@ window.addEventListener('click', (event) => {
         const cartData = JSON.parse(localStorage.getItem('cart') || '[]');
         const total = cartData.reduce((acc, product) => acc + product.price * product.quantity, 0) + shippingCost;
         const discountedTotal = total * 0.8;
+        localStorage.setItem('discountedTotal', JSON.stringify(discountedTotal));
         totalPrice.innerHTML = `
     <del style="color: rgb(89, 92, 89,0.1)">${Intl.NumberFormat('en-DE').format(total)} VNĐ</del>
     <br>
@@ -224,27 +225,88 @@ if (totalPrice) {
     const cartData = JSON.parse(localStorage.getItem('cart') || '[]');
     const total = cartData.reduce((acc, product) => acc + product.price * product.quantity, 0) + shippingCost;
     totalPrice.innerHTML = ` ${Intl.NumberFormat('en-DE').format(total)} VNĐ  `;
+    localStorage.setItem('totals', JSON.stringify(total));
 }
 const checkoutBtn = document.getElementById('checkout');
-if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-        var _a;
-        const productData = localStorage.getItem('cart');
-        if (!productData || productData === '[]') {
-            alert('Giỏ hàng của bạn đang trống');
-            return;
-        }
-        const shipping = document.getElementById('shipping');
-        if (shipping.textContent === '') {
-            alert(' Vui lòng chọn phương thức vận chuyển');
-        }
-        else {
-            const cartData = JSON.parse(productData);
-            localStorage.setItem('checkout', JSON.stringify(cartData));
-            const total = (_a = document.getElementById('totalPrice')) === null || _a === void 0 ? void 0 : _a.textContent;
-            localStorage.setItem('total', total);
-            localStorage.removeItem('cart');
-            window.location.href = 'http://127.0.0.1:57773/Front_end/checkout.html';
-        }
+checkoutBtn.addEventListener('click', () => {
+    const productData = localStorage.getItem('cart');
+    if (!productData || productData === '[]') {
+        alert('Giỏ hàng của bạn đang trống');
+        return;
+    }
+    const shippingMethodElement = document.getElementById('shipping');
+    const shipping = shippingMethodElement
+        ? shippingMethodElement.textContent
+        : null;
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const discountedTotal = localStorage.getItem('discountedTotal');
+    const totals = localStorage.getItem('totals');
+    const cartData = JSON.parse(productData);
+    localStorage.setItem('checkout', JSON.stringify(cartData));
+    if (discountedTotal == null) {
+        localStorage.setItem('total', totals);
+    }
+    else {
+        localStorage.setItem('total', discountedTotal);
+    }
+    if (!userData) {
+        alert('Vui lòng đăng nhập trước khi thanh toán.');
+    }
+    else if (!shipping) {
+        alert('Vui lòng chọn phương thức vận chuyển.');
+    }
+    else {
+        localStorage.removeItem('cart');
+        window.location.href = 'checkout.html';
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const userActionButton = document.getElementById('user-action-btn');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const logoutButton = document.getElementById('logout-btn');
+    if (userData && userData.img) {
+        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
+        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+    }
+    else {
+        userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+    }
+    const token = localStorage.getItem('token');
+    if (token) {
+        fetch('http://localhost:3000/api/token/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token: token }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+            if (data.message === 'Token is valid.') {
+                console.log('Mã thông báo vẫn còn hiệu lực');
+            }
+            else {
+                console.log('Mã thông báo không hợp lệ hoặc hết hạn');
+                localStorage.removeItem('token');
+                alert('Vui lòng đăng nhập lại Tài khoản của bạn');
+                window.location.reload();
+            }
+        })
+            .catch((error) => {
+            console.error('Error:', error);
+            window.location.href = 'login.html';
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
     });
-}
+});

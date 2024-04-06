@@ -3405,3 +3405,12 @@ footer {
   width: 150px;
   margin: 40px auto;
 }
+#userProfile {
+  height: 55px;
+  width: 55px; /* Set width to maintain aspect ratio */
+  border-radius: 50%; /* Full border-radius for circle shape */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for depth */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+  display: block; /* Block display to center image if needed */
+  margin: 0 auto; /* Center align image within its container */
+}

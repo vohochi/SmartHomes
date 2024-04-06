@@ -21,6 +21,7 @@
       href="./assets/images/logo/favicon.ico"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="./assets/css/checkout.css" />
 
     <!--
     - custom css link
@@ -190,19 +191,22 @@
               </div>
 
               <div class="header-user-actions">
-                <button class="action-btn">
-                  <ion-icon name="person-outline"></ion-icon>
+                <button class="action-btn" id="user-action-btn">
+                  <a href="login.html">
+                    <ion-icon name="person-outline"></ion-icon>
+                  </a>
                 </button>
-
+                <button id="logout-btn"></button>
                 <button class="action-btn">
                   <ion-icon name="heart-outline"></ion-icon>
                   <span class="count">0</span>
                 </button>
-
-                <button class="action-btn">
-                  <ion-icon name="bag-handle-outline"></ion-icon>
-                  <span class="count">0</span>
-                </button>
+                <a href="cart.html">
+                  <button class="action-btn">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                    <span class="count" id="count">2</span>
+                  </button></a
+                >
               </div>
             </div>
           </div>
@@ -637,233 +641,243 @@
             <div class="row">
               <div class="col-xl-8 col-lg-8 mb-4">
                 <!-- Checkout -->
-                <div class="card shadow-0 border">
-                  <div class="p-4">
-                    <h5 class="card-title mb-3">Hoàn tất thông</h5>
-                    <div class="row">
-                      <div class="col-6 mb-3">
-                        <p class="mb-0">Họ và tên</p>
-                        <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            placeholder="Type here"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-6">
-                        <p class="mb-0">??</p>
-                        <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            placeholder="Type here"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-6 mb-3">
-                        <p class="mb-0">Số điện thoại</p>
-                        <div class="form-outline">
-                          <input
-                            type="tel"
-                            id="typePhone"
-                            value="+48 "
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-6 mb-3">
-                        <p class="mb-0">Email</p>
-                        <div class="form-outline">
-                          <input
-                            type="email"
-                            id="typeEmail"
-                            placeholder="example@gmail.com"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      />
-                      <label class="form-check-label" for="flexCheckDefault"
-                        >Giữ cho tôi cập nhật tin tức</label
-                      >
-                    </div>
-
-                    <hr class="my-4" />
-
-                    <h5 class="card-title mb-3">Shipping info</h5>
-
-                    <div class="row mb-3">
-                      <div class="col-lg-4 mb-3">
-                        <!-- Default checked radio -->
-                        <div class="form-check h-100 border rounded-3">
-                          <div class="p-3">
+                <form action="" id="form" class="card shadow-0 border">
+                  <div class="card shadow-0 border">
+                    <div class="p-4">
+                      <h5 class="card-title mb-3">Hoàn tất thông</h5>
+                      <div class="row">
+                        <div class="col-6 mb-3">
+                          <p class="mb-0">Họ và tên</p>
+                          <div class="form-outline">
                             <input
-                              class="form-check-input"
-                              type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault1"
-                              checked
+                              type="text"
+                              id="fullName"
+                              placeholder="Type here"
+                              class="form-control"
                             />
-                            <label
-                              class="form-check-label"
-                              for="flexRadioDefault1"
-                            >
-                              Express delivery <br />
-                              <small class="text-muted"
-                                >3-4 days via Fedex
-                              </small>
-                            </label>
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                          <p class="mb-0">Số điện thoại</p>
+                          <div class="form-outline">
+                            <input
+                              type="tel"
+                              id="phoneNumber"
+                              value="+48 "
+                              class="form-control"
+                            />
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                          <p class="mb-0">Email</p>
+                          <div class="form-outline">
+                            <input
+                              id="email"
+                              placeholder="example@gmail.com"
+                              class="form-control"
+                            />
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                          <p class="mb-0">Ngân hàng thanh toán</p>
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              placeholder="TP.Bank"
+                              class="form-control"
+                            />
+                            <small>Vui lòng nhập thông tin</small>
+                            <div id="bank"></div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-4 mb-3">
-                        <!-- Default radio -->
-                        <div class="form-check h-100 border rounded-3">
-                          <div class="p-3">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault2"
-                            />
-                            <label
-                              class="form-check-label"
-                              for="flexRadioDefault2"
-                            >
-                              Post office <br />
-                              <small class="text-muted"
-                                >3-7 days via post
-                              </small>
-                            </label>
+
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="flexCheckDefault"
+                        />
+                        <label class="form-check-label" for="flexCheckDefault"
+                          >Giữ cho tôi cập nhật tin tức</label
+                        >
+                      </div>
+
+                      <hr class="my-4" />
+
+                      <h5 class="card-title mb-3">Shipping info</h5>
+
+                      <div class="row mb-3">
+                        <div class="col-lg-4 mb-3">
+                          <!-- Default checked radio -->
+                          <div class="form-check h-100 border rounded-3">
+                            <div class="p-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                                checked
+                              />
+                              <label
+                                class="form-check-label"
+                                for="flexRadioDefault1"
+                              >
+                                Express delivery <br />
+                                <small class="text-muted"
+                                  >3-4 days via Fedex
+                                </small>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                          <!-- Default radio -->
+                          <div class="form-check h-100 border rounded-3">
+                            <div class="p-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault2"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="flexRadioDefault2"
+                              >
+                                Post office <br />
+                                <small class="text-muted"
+                                  >3-7 days via post
+                                </small>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                          <!-- Default radio -->
+                          <div class="form-check h-100 border rounded-3">
+                            <div class="p-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault3"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="flexRadioDefault3"
+                              >
+                                Tự nhận <br />
+                                <small class="text-muted"
+                                  >Hãy đến cửa hàng
+                                </small>
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-4 mb-3">
-                        <!-- Default radio -->
-                        <div class="form-check h-100 border rounded-3">
-                          <div class="p-3">
+
+                      <div class="row">
+                        <div class="col-sm-8 mb-3">
+                          <p class="mb-0">Địa chỉ</p>
+                          <div class="form-outline">
                             <input
-                              class="form-check-input"
-                              type="radio"
-                              name="flexRadioDefault"
-                              id="flexRadioDefault3"
+                              type="text"
+                              id="address"
+                              placeholder="Type here"
+                              class="form-control"
                             />
-                            <label
-                              class="form-check-label"
-                              for="flexRadioDefault3"
-                            >
-                              Tự nhận <br />
-                              <small class="text-muted"
-                                >Hãy đến cửa hàng
-                              </small>
-                            </label>
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4 mb-3">
+                          <p class="mb-0">Thành phố / Tỉnh</p>
+                          <select class="form-select" id="city">
+                            <option value="1">New York</option>
+                            <option value="2">Moscow</option>
+                            <option value="3">Samarqand</option>
+                          </select>
+                          <small>Vui lòng nhập thông tin</small>
+                        </div>
+
+                        <div class="col-sm-4 mb-3">
+                          <p class="mb-0">Quận / Huyện</p>
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              id="village"
+                              placeholder="Type here"
+                              class="form-control"
+                            />
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4 col-6 mb-3">
+                          <p class="mb-0">Phường / Xã</p>
+                          <div class="form-outline">
+                            <input
+                              type="text"
+                              id="district"
+                              class="form-control"
+                            />
+                            <small>Vui lòng nhập thông tin</small>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4 col-6 mb-3">
+                          <p class="mb-0">Mã bưu điện</p>
+                          <div class="form-outline">
+                            <input type="text" id="zip" class="form-control" />
+                            <small>Vui lòng nhập thông tin</small>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div class="row">
-                      <div class="col-sm-8 mb-3">
-                        <p class="mb-0">Address</p>
+                      <div class="form-check mb-3">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="flexCheckDefault1"
+                        />
+                        <label class="form-check-label" for="flexCheckDefault1"
+                          >Save this address</label
+                        >
+                      </div>
+
+                      <div class="mb-3">
+                        <p class="mb-0">Ghi chú</p>
                         <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            placeholder="Type here"
+                          <textarea
                             class="form-control"
-                          />
+                            id="note"
+                            rows="2"
+                          ></textarea>
                         </div>
                       </div>
 
-                      <div class="col-sm-4 mb-3">
-                        <p class="mb-0">City</p>
-                        <select class="form-select">
-                          <option value="1">New York</option>
-                          <option value="2">Moscow</option>
-                          <option value="3">Samarqand</option>
-                        </select>
+                      <div class="float-end">
+                        <!-- <button class="btn btn-light border">Cancel</button> -->
+
+                        <button
+                          class="btn btn-success shadow-0 border col-12 mb-3"
+                          type="submit"
+                        >
+                          Continue
+                        </button>
                       </div>
-
-                      <div class="col-sm-4 mb-3">
-                        <p class="mb-0">House</p>
-                        <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            placeholder="Type here"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-4 col-6 mb-3">
-                        <p class="mb-0">Postal code</p>
-                        <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-sm-4 col-6 mb-3">
-                        <p class="mb-0">Zip</p>
-                        <div class="form-outline">
-                          <input
-                            type="text"
-                            id="typeText"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-check mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault1"
-                      />
-                      <label class="form-check-label" for="flexCheckDefault1"
-                        >Save this address</label
-                      >
-                    </div>
-
-                    <div class="mb-3">
-                      <p class="mb-0">Message to seller</p>
-                      <div class="form-outline">
-                        <textarea
-                          class="form-control"
-                          id="textAreaExample1"
-                          rows="2"
-                        ></textarea>
-                      </div>
-                    </div>
-
-                    <div class="float-end">
-                      <button class="btn btn-light border">Cancel</button>
-                      <button class="btn btn-success shadow-0 border">
-                        Continue
-                      </button>
                     </div>
                   </div>
-                </div>
+                </form>
+
                 <!-- Checkout -->
               </div>
               <div
@@ -878,7 +892,7 @@
 
                   <hr />
 
-                  <div class="input-group mt-3 mb-4">
+                  <!-- <div class="input-group mt-3 mb-4">
                     <input
                       type="text"
                       class="form-control border"
@@ -888,7 +902,7 @@
                     <button class="btn btn-light text-primary border">
                       Apply
                     </button>
-                  </div>
+                  </div> -->
 
                   <hr />
                   <h6 class="text-dark my-4" id="checkout-page">

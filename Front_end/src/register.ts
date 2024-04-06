@@ -87,6 +87,6 @@ form.addEventListener('submit', function (e) {
 
   if (isValid) {
     form.submit(); // Gửi form nếu dữ liệu hợp lệ
-    window.location.href = 'login.html';
+    // window.location.href = 'login.html';
   }
 });

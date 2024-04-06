@@ -68,6 +68,5 @@ form.addEventListener('submit', function (e) {
     checkPasswordsMatch(password, password2);
     if (isValid) {
         form.submit();
-        window.location.href = 'login.html';
     }
 });

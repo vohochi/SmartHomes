@@ -1,21 +1,27 @@
 var express = require('express');
 var router = express.Router();
-const multer = require('multer');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+const path = require('path');
+const multer = require('multer');
+const jwt = require('jsonwebtoken');
 
-//Thiết lập nơi lưu trữ và tên file
+// Thiết lập nơi lưu trữ và tên file
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images');
+    // Sử dụng path.join để tạo đường dẫn tới thư mục gốc của dự án và thư mục 'public/images'
+    const uploadPath = path.join(__dirname, '../public/images');
+    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   },
 });
+
+// ...
 //Kiểm tra file upload
 function checkFileUpLoad(req, file, cb) {
-  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif|webp)$/)) {
     return cb(new Error('Bạn chỉ được upload file ảnh'));
   }
   cb(null, true);
@@ -24,7 +30,136 @@ function checkFileUpLoad(req, file, cb) {
 let upload = multer({ storage: storage, fileFilter: checkFileUpLoad });
 //Imort model
 const connectDb = require('../models/db');
+// Hàm kiểm tra token (middleware)
+function verifyToken(req, res, next) {
+  const token = req.headers['authorization'];
 
+  if (token) {
+    jwt.verify(token, 'lock', (err, decoded) => {
+      if (err) {
+        return res.json({ message: 'Token không hợp lệ' });
+      } else {
+        req.user = decoded;
+        next();
+      }
+    });
+  } else {
+    res.send({ message: 'Không có token' });
+  }
+}
+
+//checkout
+router.get('/products/billCheckout', async (req, res) => {
+  const db = await connectDb();
+  const collection = db.collection('checkout');
+
+  try {
+    // Truy vấn tất cả hóa đơn từ cơ sở dữ liệu
+    const bills = await collection.find({}).toArray();
+
+    // Gửi dữ liệu hóa đơn trở lại cho client
+    res.status(200).json(bills);
+  } catch (error) {
+    // Xử lý trường hợp có lỗi xảy ra
+    res
+      .status(500)
+      .json({ message: 'Lỗi khi lấy dữ liệu hóa đơn.', error: error });
+  }
+});
+router.post('/products/billCheckout', async (req, res) => {
+  const {
+    name,
+    email,
+    district,
+    phone,
+    address,
+    village,
+    zip,
+    bank,
+    data,
+    ship,
+    note,
+    total,
+  } = req.body;
+
+  // Kết nối đến cơ sở dữ liệu
+  const db = await connectDb();
+  const usersCollection = db.collection('users');
+  const checkoutCollection = db.collection('checkout');
+
+  try {
+    // Tìm thông tin người dùng từ email
+    const user = await usersCollection.findOne({ email: email });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: 'Không tìm thấy người dùng với email này.' });
+    }
+    const userId = user._id;
+
+    // Định nghĩa các giá trị mặc định
+    const defaultValues = {
+      userId, // Trường liên kết đến người dùng
+      orderStatus: 'processing',
+      paymentStatus: 'pending',
+      createdAt: new Date(),
+    };
+
+    // Chèn thông tin thanh toán vào bảng 'checkout'
+    const result = await checkoutCollection.insertOne({
+      ...defaultValues,
+      name,
+      email,
+      district,
+      phone,
+      address,
+      village,
+      zip,
+      bank,
+      data,
+      ship,
+      note,
+      total,
+    });
+
+    res.status(201).json({
+      message: 'Thông tin thanh toán đã được lưu thành công.',
+      result: result,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'Lỗi khi lưu thông tin thanh toán.', error: error });
+  }
+});
+// check token
+router.post('/token/verify', (req, res) => {
+  const { token } = req.body;
+
+  // Kiểm tra xem token có được cung cấp hay không
+  if (!token) {
+    return res.status(400).json({
+      success: false,
+      message: 'Không có mã thông báo được cung cấp.',
+    });
+  }
+
+  try {
+    // Sử dụng cùng 'secret key' mà bạn đã sử dụng để tạo token
+    const decoded = jwt.verify(token, 'lock');
+    // Token hợp lệ và còn thời hạn
+    res.json({
+      success: true,
+      message: 'Token is valid.',
+      decoded,
+    });
+  } catch (error) {
+    // Token không hợp lệ hoặc đã hết hạn
+    res
+      .status(401)
+      .json({ success: false, message: 'Token is invalid or expired.' });
+  }
+});
 // Phân trang
 router.get('/products/paginations', async (req, res, next) => {
   try {
@@ -50,8 +185,6 @@ router.get('/products/paginations', async (req, res, next) => {
       .limit(pageSize)
       .toArray();
 
-    // Gửi dữ liệu và thông tin phân trang trở lại cho client
-    // Cấu trúc đúng (nếu giả sử cách bạn gán data là đúng)
     res.json({
       data: data, // Đối tượng dữ liệu chính
       pagination: {
@@ -86,7 +219,6 @@ router.get('/products/increaseProducts', async (req, res, next) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.error('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -109,7 +241,6 @@ router.get('/products/decreaseProducts', async (req, res, next) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.error('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -140,7 +271,6 @@ router.get('/products/hot', async (req, res, next) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.log('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -158,7 +288,6 @@ router.get('/products/trending', async (req, res, next) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.log('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -176,7 +305,6 @@ router.get('/products/topRate', async (req, res, next) => {
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.log('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -301,30 +429,32 @@ router.post('/categories', upload.single('img'), async (req, res, next) => {
   }
 });
 
-//Put sửa danh mục từ form
-router.put('/categories/:id', upload.single('img'), async (req, res, next) => {
-  let id = req.params.id;
-  const db = await connectDb();
-  const categoriesCollection = db.collection('categories');
-  let { name } = req.body;
-  if (req.file) {
-    var img = req.file.originalname;
-  } else {
-    //láy danh mục tư id để lấy img cũ
-    let categories = await categoriesCollection.findOne({ id: parseInt(id) });
-    var img = categories.img;
-  }
-  let editCategories = { name, img };
-  categories = await categoriesCollection.updateOne(
-    { id: parseInt(id) },
-    { $set: editCategories }
-  );
-  if (categories) {
-    res.status(200).json(editCategories);
-  } else {
-    res.status(404).json({ message: 'Sửa không thành kông.' });
-  }
-});
+// //Put sửa danh mục từ form
+// router.put('/categories/:id', async (req, res, next) => {
+//   let id = req.params.id;
+//   const db = await connectDb();
+//   const categoriesCollection = db.collection('categories');
+//   let { name, image } = req.body;
+//   if (image) {
+//     var image = req.file.originalname;
+//   } else {
+//     //láy danh mục tư id để lấy image cũ
+//     let categories = await categoriesCollection.findOne({ id: parseInt(id) });
+//     if (categories.image != null) {
+//       var image = categories.image;
+//     }
+//   }
+//   let editCategories = { name, image };
+//   categories = await categoriesCollection.updateOne(
+//     { id: parseInt(id) },
+//     { $set: editCategories }
+//   );
+//   if (categories) {
+//     res.status(200).json(editCategories);
+//   } else {
+//     res.status(404).json({ message: 'Sửa không thành kông.' });
+//   }
+// });
 
 //Xóa sản phẩm
 router.delete('/categories/:id', async (req, res, next) => {
@@ -451,14 +581,12 @@ router.get('/products/category_id/:id', async (req, res, next) => {
 router.get('/products/categoryName/:danhmuc', async (req, res, next) => {
   const id = req.params.danhmuc;
   const db = await connectDb();
-  console.log(typeof name);
   const productCollection = db.collection('products');
   const categoryCollection = db.collection('categories');
 
   try {
     let category = await categoryCollection.findOne({ id: +id });
     let catid = category.id;
-    // console.log(cat.id);
     const products = await productCollection
       .find({ category_id: catid })
       .toArray();
@@ -466,13 +594,9 @@ router.get('/products/categoryName/:danhmuc', async (req, res, next) => {
     if (products.length > 0) {
       res.status(200).json(products);
     } else {
-      console.log(name);
-      console.log(category);
-      // console.log(catid);
       res.status(404).json({ message: 'Không tìm thấy sản phẩm nào' });
     }
   } catch (error) {
-    console.log('error', error);
     res.status(500).send('Lỗi hệ thống');
   }
 });
@@ -505,7 +629,6 @@ router.get('/products/search/:searchQuery', async (req, res, next) => {
 
     res.status(200).json(products);
   } catch (error) {
-    console.error('Error in search:', error);
     res.status(500).send('Server error');
   }
 });
@@ -534,7 +657,6 @@ router.get('/products/price/:option', async (req, res, next) => {
     const products = await productCollection.find(priceQuery).toArray();
     res.status(200).json(products);
   } catch (error) {
-    console.error('Lỗi tìm nạp sản phẩm:', error);
     res.status(500).send('Server error');
   }
 });
@@ -577,38 +699,79 @@ router.post('/users/register', upload.single('img'), async (req, res, next) => {
     username,
     img,
   });
-
-  res.redirect('/users/login');
+  res.redirect('login.html');
 });
 // login
-router.post('/login', async (req, res, next) => {
+
+router.post('/users/login', async (req, res, next) => {
   const { username, password } = req.body;
-  const db = await connectDb();
-  const userCollection = db.collection('users');
-  const user = await userCollection.findOne({ username });
-  if (user.isLocked) {
-    return res
-      .status(403)
-      .send('Your account is locked. Please contact an administrator.');
-  }
-  if (!user) {
-    return res.status(401).send('Invalid username or password');
-  }
+  try {
+    const db = await connectDb();
+    const userCollection = db.collection('users');
+    const user = await userCollection.findOne({ username });
 
-  // Compare the provided password with the stored hashed password
-  const validPassword = await bcrypt.compare(password, user.password);
-  if (!validPassword) {
-    return res.status(401).send('Username hoặc mật khẩu không hợp lệ');
-  }
+    if (!user) {
+      return res
+        .status(401)
+        .json({ success: false, message: 'Invalid username or password' });
+    }
 
-  // res.redirect('http://127.0.0.1:57773/Front_end/index.html');
+    if (user.isLocked) {
+      return res.status(403).json({
+        success: false,
+        message:
+          'Tài khoản của bạn bị khóa.Vui lòng liên hệ với một quản trị viên.',
+      });
+    }
+
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+      return res.status(401).json({
+        success: false,
+        message: 'Tên đăng nhập hoặc tài khoản của bạn không chính xác',
+      });
+    }
+
+    // Tạo token
+    const token = jwt.sign(
+      { userId: user._id, username: user.username },
+      'lock',
+      { expiresIn: '1h' }
+    );
+
+    // Xác thực thành công, gửi token và thông tin người dùng
+    res.json({
+      success: true,
+      token: token, // Gửi token
+      user: {
+        // Gửi thông tin cần thiết để hiển thị trên trang web
+        username: user.username,
+        img: user.img,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    // Xử lý lỗi không mong muốn
+    res.status(500).json({ success: false, message: 'Đã xảy ra lỗi ' });
+  }
 });
 
+// Route này yêu cầu token để truy cập
+router.get('/user/profile', verifyToken, (req, res) => {
+  // Lấy thông tin người dùng từ cơ sở dữ liệu
+  User.findById(req.user.userId, (err, user) => {
+    if (err) throw err;
+    res.json({
+      username: user.username,
+      img: user.img,
+    });
+  });
+});
 // Nhập chức năng SendMail
 const { sendMail } = require('../utils/mailers');
 
 // Bên trong tuyến đường quên của bạn
-router.post('/forgot-password', async (req, res) => {
+router.post('/users/forgot-password', async (req, res) => {
   const { email } = req.body;
   try {
     const db = await connectDb();
@@ -634,7 +797,7 @@ router.post('/forgot-password', async (req, res) => {
     <p>  ${new Date().toLocaleString()} </p>
       <p>Bạn đã yêu cầu đặt lại mật khẩu.</p>
       <p>Nhấp vào liên kết này để đặt lại mật khẩu của bạn:</p>
-      <a href="http://localhost:3000/users/reset-password/${resetToken}">Đặt lại mật khẩu</a>
+      <a href="http://localhost:50494/Front_end/resetPassword.html?token=${resetToken}">Đặt lại mật khẩu</a>
       `;
     const htmlContent1 = `
       <p>Bạn đã yêu cầu đặt lại mật khẩu.</p>
@@ -646,6 +809,8 @@ router.post('/forgot-password', async (req, res) => {
     res.send(
       `<html><body>
       ${htmlContent1}
+            <a href="${resetLink}"></a>
+
       </body></html>`
     );
   } catch (err) {
@@ -657,8 +822,8 @@ router.post('/forgot-password', async (req, res) => {
   }
 });
 
-router.get('/reset-password/:token', async (req, res) => {
-  const { token } = req.params;
+router.get('/users/reset-password/?token=resetToken', async (req, res) => {
+  const { resetToken } = req.params;
   try {
     const db = await connectDb();
     const userCollection = db.collection('users');
@@ -669,7 +834,7 @@ router.get('/reset-password/:token', async (req, res) => {
       return res.status(400).send('Token không hợp lệ hoặc đã hết hạn.');
     }
 
-    res.render('reset-password', { token }); // Render your form
+    res.render('reset-password', { resetToken }); // Render your form
   } catch (err) {
     return res.status(500).send('Server error');
   }
@@ -699,7 +864,205 @@ router.post('/reset-password/:token', async (req, res) => {
       },
     }
   );
-  res.redirect('/users/login');
+  res.redirect('/login.html'); // Đảm bảo rằng đường dẫn này chính xác
+});
+// Thêm sản phẩm
+
+//Post thêm sản phẩm
+router.post('/products/add', upload.single('image'), async (req, res) => {
+  try {
+    // Destructure and obtain product details from the request body
+    let { name, price, category, quantity, description, size } = req.body;
+
+    // Get the image file name if an image was uploaded, otherwise set to null
+    let image = req.file ? req.file.originalname : null;
+    console.log(image);
+    // Connect to the database
+    const db = await connectDb();
+    const productCollection = db.collection('products');
+
+    // Tìm sản phẩm có ID cao nhất
+    const lastProduct = await productCollection.findOne(
+      {},
+      { sort: { id: -1 } }
+    );
+
+    // Calculate the new product's id
+    let id = lastProduct ? lastProduct.id + 1 : 1;
+
+    // Construct the new product object
+    let newProduct = {
+      id,
+      name,
+      price,
+      category,
+      quantity,
+      image,
+      description,
+      size,
+    };
+
+    // Insert the new product into the collection
+    await productCollection.insertOne(newProduct);
+
+    // Send a success response
+    res.status(201).json({ message: 'Product added successfully', newProduct });
+  } catch (error) {
+    // Handle any errors that occur during the operation
+    console.error('Error adding product:', error);
+    res.status(500).json({ message: 'Error adding product', error });
+  }
+});
+// cập nhật sản phẩm
+router.put('/products/update/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { id } = req.params; // Lấy ID từ parameters
+    let { name, price, category, quantity, description, size } = req.body;
+
+    // Get the image file name if an image was uploaded
+    let image = req.file ? req.file.filename : null; // Sử dụng filename thay vì originalname để lưu tên file được lưu trên server
+
+    // Connect to the database
+    const db = await connectDb();
+    const productCollection = db.collection('products');
+
+    // Construct the update object
+    let updateObject = {
+      quantity,
+      name,
+      price,
+      category,
+      description,
+      size,
+      image,
+    };
+
+    console.log(image);
+    // Update the product in the collection
+    const result = await productCollection.updateOne(
+      { id: parseInt(id) }, // ensure that the id is an integer if it's stored as such
+      { $set: updateObject }
+    );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Send a success response
+    res.status(200).json({ message: 'Sản phẩm cập nhật thành công' });
+  } catch (error) {
+    // Handle any errors that occur during the operation
+    console.error('Error updating product:', error);
+    res.status(500).json({ message: 'Error updating product', error });
+  }
+});
+// show categories
+router.get('/categories', async (req, res, next) => {
+  const db = await connectDb();
+  const categoryCollection = db.collection('categories');
+  const categories = await categoryCollection.find().toArray();
+});
+// add category
+router.post(
+  '/categories/add',
+  upload.single('image'),
+  async (req, res, next) => {
+    try {
+      let { name, category, quantity } = req.body;
+      let image = req.file ? req.file.originalname : null;
+      const db = await connectDb();
+      const categoryCollection = db.collection('categories');
+
+      let lastCategories = await categoryCollection
+        .find()
+        .sort({ id: -1 })
+        .limit(1)
+        .toArray();
+
+      let id = lastCategories.length > 0 ? lastCategories[0].id + 1 : 1;
+      let newCategories = {
+        id,
+        name,
+        image,
+        category,
+        quantity: parseInt(quantity),
+      };
+
+      await categoryCollection.insertOne(newCategories);
+
+      // Gửi phản hồi thành công
+      res
+        .status(201)
+        .json({ message: 'Category added successfully', newCategories });
+    } catch (error) {
+      // Gửi lỗi nếu có
+      res.status(500).json({ message: 'Error adding category', error: error });
+    }
+  }
+);
+// Sửa lại đường dẫn route để bao gồm `:id` như một route parameter
+router.put(
+  '/categories/update/:id',
+  upload.single('image'),
+  async (req, res, next) => {
+    try {
+      let image = req.file ? req.file.originalname : null;
+      const { id } = req.params;
+      let { name, category, quantity } = req.body; // 'image' không được lấy từ body vì sẽ xử lý ảnh riêng
+      const db = await connectDb();
+      const categoryCollection = db.collection('categories');
+
+      // Xử lý file ảnh nếu có
+      const updateFields = {
+        name,
+        category,
+        quantity,
+        ...(image && { image: image }),
+      };
+      console.log(updateFields);
+      console.log(id, 'đây là id');
+      const updateResult = await categoryCollection.updateOne(
+        { id: parseInt(id) },
+        { $set: updateFields }
+      );
+
+      if (updateResult.matchedCount === 0) {
+        return res
+          .status(404)
+          .json({ message: 'Không tìm thấy danh mục để cập nhật.' });
+      }
+
+      if (updateResult.modifiedCount === 0) {
+        return res
+          .status(304)
+          .json({ message: 'Không có thông tin nào được cập nhật.' });
+      }
+
+      res.status(200).json({ message: 'Thể loại được cập nhật thành công.' });
+    } catch (error) {
+      res.status(500).json({
+        message: 'Có lỗi xảy ra khi cập nhật danh mục.',
+        error: error.message,
+      });
+    }
+  }
+);
+// khóa users
+router.get('/users/lock/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const db = await connectDb();
+  const userCollection = db.collection('users');
+
+  await userCollection.updateOne({ id }, { $set: { isLocked: true } });
+  // res.redirect('/users');
+});
+// checkout
+router.get('/users/unlock/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const db = await connectDb();
+  const userCollection = db.collection('users');
+
+  await userCollection.updateOne({ id }, { $set: { isLocked: false } });
 });
 
 module.exports = router;

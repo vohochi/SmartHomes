@@ -2,7 +2,7 @@ export class Product {
   id: string;
   name: string;
   description: string;
-  image: string;
+  image: any;
   price: number;
   quantity: number;
   category: string; // Tham chiếu đến Category
@@ -11,7 +11,7 @@ export class Product {
   constructor(
     name: string,
     description: string,
-    image: string,
+    image: any,
     price: number,
     quantity: number,
     category: string,
@@ -29,7 +29,7 @@ export class Product {
 export interface IProductInterface {
   getAll(): Promise<Product[]>;
   getById(id: string): Promise<Product>;
-  create(data: Product): Promise<void>;
-  update(id: string, data: Product): Promise<void>;
+  create(data: FormData): Promise<void>;
+  update(id: string, data: FormData): Promise<void>;
   delete(id: string): Promise<void>;
 }

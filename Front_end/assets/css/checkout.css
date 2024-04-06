@@ -1,0 +1,53 @@
+:root {
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+.form-floating {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.success {
+  border-color: var(--success-color);
+}
+
+.form-control.error {
+  border-color: var(--error-color);
+}
+
+.form-outline small {
+  color: var(--error-color);
+
+  visibility: hidden;
+}
+
+.form-outline.error small {
+  visibility: visible;
+  color: var(--error-color);
+}
+
+#bankSelect:hover {
+  background-color: orangered;
+}
+#bankSelect {
+  display: flex;
+  text-align: center;
+  cursor: pointer;
+}
+#bankSelect img {
+  height: 25px;
+}
+#bank {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}

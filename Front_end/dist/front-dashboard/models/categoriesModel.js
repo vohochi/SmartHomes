@@ -1,7 +1,8 @@
 export class Category {
-    constructor(name, description, image) {
+    constructor(name, quantity, image, category) {
         this.name = name;
-        this.description = description;
+        this.quantity = quantity;
         this.image = image;
+        this.category = category;
     }
 }

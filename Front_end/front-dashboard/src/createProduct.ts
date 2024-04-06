@@ -4,9 +4,13 @@ import { Product } from '../models/productsModel.js';
 // Thêm sự kiện click cho nút thêm sản phẩm
 document.getElementById('addProduct').addEventListener('click', () => {
   const name = (<HTMLInputElement>document.getElementById('name')).value;
-  const description = (<HTMLInputElement>document.getElementById('description'))
-    .textContent;
-  const image = (<HTMLInputElement>document.getElementById('image')).src;
+  const description = document
+    .getElementById('description')
+    .querySelector('p').textContent;
+  console.log(description);
+  const imageInput = document.getElementById('image') as HTMLInputElement;
+  const image = imageInput.files ? imageInput.files[0] : null;
+  console.log(image);
   const price = Number(
     (<HTMLInputElement>document.getElementById('price')).value
   );
@@ -15,15 +19,26 @@ document.getElementById('addProduct').addEventListener('click', () => {
   );
   const category = (<HTMLInputElement>document.getElementById('category'))
     .value;
-  let size = (<HTMLInputElement>document.getElementById('size')).value;
+  let size1 = <HTMLElement>document.getElementById('size');
   // const image = img.split('/').pop(); // Lấy phần cuối cùng của URL
-  console.log(size);
+  size1 = size1.querySelector('span > span > span > span');
+  const size = size1.getAttribute('title');
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('description', description);
+  if (image) {
+    formData.append('image', image);
+  }
+  formData.append('price', price.toString());
+  formData.append('quantity', quantity.toString());
+  formData.append('category', category);
+  if (size) {
+    formData.append('size', size);
+  }
   addProduct
-    .create(
-      new Product(name, description, image, price, quantity, category, size)
-    )
+    .create(formData)
     .then((data) => {
-      window.location.reload();
+      window.location.href = '../front-dashboard/ecommerce-products.html';
     })
     .catch((error) => {
       console.error('Lỗi:', error); // In ra lỗi cụ thể
