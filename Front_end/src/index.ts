@@ -301,7 +301,7 @@ const saleOff = async () => {
     .join('');
 };
 
-const endDate = new Date(2024, 3, 5, 23, 59, 59); // Ngày 25/12/2024 23:59:59
+const endDate = new Date(2024, 3, 10, 23, 59, 59); // Ngày 25/12/2024 23:59:59
 
 const updateCountdown = () => {
   const now = new Date();
@@ -669,7 +669,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (userData && userData.img) {
     // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
     userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
-    logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+    logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">
+    `;
   } else {
     // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập
     userActionButton.innerHTML = `

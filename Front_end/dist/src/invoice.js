@@ -175,14 +175,13 @@ const showBill = () => __awaiter(void 0, void 0, void 0, function* () {
         });
         bills.map((b) => {
             bill.innerHTML += `    <tr>
-                    <td><a href="#">${b._id}</a></td>
-                    <td>Standard</td>
-                    <td></td>
-                    <td><a href="#">22/04/2019</a></td>
+                    <td><a href="#">#${b._id}</a></td>
+                    <td>${b.totalPrice}</td>
+                    <td>Chuyển khoản</td>
+                    <td><a href="#">${b.createdAt}</a></td>
                     <td>
                       <a class="btn btn-sm btn-white" href="#">
-                        <i class="tio-download-to mr-1"></i> PDF
-                      </a>
+<button class="btn btn-secondary"> ${b.orderStatus}</button>                      </a>
                     </td>
                     <td>
                       <a
@@ -199,3 +198,27 @@ const showBill = () => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 showBill();
+document.addEventListener('DOMContentLoaded', function () {
+    const userActionButton = document.getElementById('user-action-btn');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const logoutButton = document.getElementById('logout-btn');
+    if (userData && userData.img) {
+        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image">`;
+        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+    }
+    else {
+        userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
+    });
+});

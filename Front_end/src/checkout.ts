@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const phone = document.getElementById('phoneNumber') as HTMLInputElement;
     const address = document.getElementById('address') as HTMLInputElement;
     const village = document.getElementById('village') as HTMLInputElement;
-    const city = document.getElementById('city') as HTMLElement;
+    const city = document.getElementById('city') as HTMLInputElement;
     let banks = document.getElementById('bank') as HTMLInputElement;
     let note1 = document.getElementById('note') as HTMLInputElement;
     const note = note1.value;
@@ -149,6 +149,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     function getFieldName(input) {
       return input.id.charAt(0).toUpperCase() + input.id.slice(1);
     }
+    let selectedDeliveryOption = '';
     document
       .querySelectorAll("input[name='flexRadioDefault']")
       .forEach((radio) => {
@@ -164,13 +165,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
           }
         });
       });
-    const total = localStorage.getItem('total');
-    console.log(total);
-    checkRequired([name, emails, district, phone, address, village, zip, bank]);
+
+    checkRequired([
+      name,
+      emails,
+      city,
+      district,
+      phone,
+      address,
+      village,
+      zip,
+      bank,
+    ]);
     const dataCheckout = JSON.parse(localStorage.getItem('checkout'));
     // Tạo đối tượng data để gửi
 
     if (isValid) {
+      const totalPrice = JSON.parse(localStorage.getItem('total'));
       const checkoutData = {
         email: emails.value,
         name: name.value,
@@ -178,13 +189,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         district: district.value,
         address: address.value,
         village: village.value,
-        city: city.textContent,
+        city: city.value,
         bank: bank.value,
         zip: zip.value,
         data: dataCheckout,
         note: note,
         ship: selectedDeliveryOption,
-        totalPrice: total,
+        totalPrice: Intl.NumberFormat('en-DE').format(totalPrice),
       };
       postCheckoutData(JSON.stringify(checkoutData));
     }
@@ -252,5 +263,3 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = 'login.html'; // Thay 'login.html' bằng trang đăng nhập của bạn
   });
 });
-// Khai báo biến để lưu trữ nội dung văn bản
-let selectedDeliveryOption = '';

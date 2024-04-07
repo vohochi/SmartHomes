@@ -12,7 +12,6 @@ class UserModel {
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield fetchAPI(`${url}users`);
-            console.log(data);
             return data;
         });
     }
@@ -27,7 +26,6 @@ class UserModel {
     }
     create(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(data);
             const data1 = yield fetchAPI(`${url}users/add`, {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -212,11 +210,8 @@ window.addEventListener('click', (e) => {
     if (data_target == '#lockUser') {
         tr.className = 'lock';
         lockUser.lock(id);
-        console.log(id);
     }
 });
-const rows = document.querySelectorAll('tr');
-rows.forEach((row) => {
-    const htmlElement = row;
-    console.log(htmlElement);
-});
+const users = document.getElementById('users');
+const rows = users.querySelectorAll('tr');
+console.log(rows);

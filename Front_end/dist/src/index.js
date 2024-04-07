@@ -274,7 +274,7 @@ const saleOff = () => __awaiter(void 0, void 0, void 0, function* () {
     })
         .join('');
 });
-const endDate = new Date(2024, 3, 5, 23, 59, 59);
+const endDate = new Date(2024, 3, 10, 23, 59, 59);
 const updateCountdown = () => {
     const now = new Date();
     const diff = endDate.getTime() - now.getTime();
@@ -565,7 +565,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.getElementById('logout-btn');
     if (userData && userData.img) {
         userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
-        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">
+    `;
     }
     else {
         userActionButton.innerHTML = `

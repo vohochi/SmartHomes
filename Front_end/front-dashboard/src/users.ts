@@ -6,7 +6,6 @@ interface ApiResponse {
 class UserModel implements IUserInterface {
   async getAll(): Promise<User[]> {
     const data = await fetchAPI(`${url}users`);
-    console.log(data);
     return data as User[];
   }
   async getById(id: string): Promise<User> {
@@ -18,7 +17,6 @@ class UserModel implements IUserInterface {
   }
 
   async create(data: User): Promise<void> {
-    console.log(data);
     const data1 = await fetchAPI(`${url}users/add`, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -194,11 +192,12 @@ window.addEventListener('click', (e) => {
   if (data_target == '#lockUser') {
     tr.className = 'lock';
     lockUser.lock(id);
-    console.log(id);
   }
 });
-const rows = document.querySelectorAll('tr');
-rows.forEach((row) => {
-  const htmlElement = row as HTMLElement;
-  console.log(htmlElement);
-});
+const users = document.getElementById('users');
+const rows = users.querySelectorAll('tr');
+console.log(rows);
+// rows.forEach((row) => {
+//   const htmlElement = row as HTMLElement;
+//   console.log(htmlElement);
+// });

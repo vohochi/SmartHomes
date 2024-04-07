@@ -32,19 +32,20 @@ let upload = multer({ storage: storage, fileFilter: checkFileUpLoad });
 const connectDb = require('../models/db');
 // Hàm kiểm tra token (middleware)
 function verifyToken(req, res, next) {
-  const token = req.headers['authorization'];
-
-  if (token) {
-    jwt.verify(token, 'lock', (err, decoded) => {
+  const bearerHeader = req.headers['authorization'];
+  if (typeof bearerHeader !== 'undefined') {
+    const bearer = bearerHeader.split(' ');
+    const bearerToken = bearer[1];
+    jwt.verify(bearerToken, 'lock', (err, decoded) => {
       if (err) {
-        return res.json({ message: 'Token không hợp lệ' });
+        return res.status(401).json({ message: 'Token không hợp lệ' });
       } else {
         req.user = decoded;
         next();
       }
     });
   } else {
-    res.send({ message: 'Không có token' });
+    res.status(403).send({ message: 'Không có token' });
   }
 }
 
@@ -79,7 +80,7 @@ router.post('/products/billCheckout', async (req, res) => {
     data,
     ship,
     note,
-    total,
+    totalPrice,
   } = req.body;
 
   // Kết nối đến cơ sở dữ liệu
@@ -119,7 +120,7 @@ router.post('/products/billCheckout', async (req, res) => {
       data,
       ship,
       note,
-      total,
+      totalPrice,
     });
 
     res.status(201).json({
@@ -482,6 +483,68 @@ router.get('/users', async (req, res, next) => {
     res.status(404).json({ message: 'Not found' });
   }
 });
+// Get profile
+router.get('/users/profile', verifyToken, async (req, res) => {
+  try {
+    // Giả sử chúng ta sử dụng JWT để xác thực
+    const token = req.headers.authorization.split(' ')[1];
+    const decoded = jwt.verify(token, 'lock');
+
+    // decoded.userId là ID của người dùng được mã hoá trong token
+    const db = await connectDb();
+    const userCollection = db.collection('users');
+    console.log(decoded);
+    // Tìm kiếm người dùng dựa trên userId
+    const userProfile = await userCollection.findOne({
+      username: decoded.username,
+    });
+    console.log(userProfile);
+    if (!userProfile) {
+      return res.status(404).send('Không tìm thấy profile người dùng');
+    }
+
+    // Trả về profile người dùng
+    res.json(userProfile);
+  } catch (error) {
+    // Xử lý lỗi nếu có
+    res.status(500).send('Có lỗi xảy ra');
+  }
+});
+// Post profile
+router.post('/users/profile', verifyToken, async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Sửa lại ở đây
+    const decoded = jwt.verify(token, 'lock');
+    const db = await connectDb();
+    const profileUserCollection = db.collection('profilesUser');
+    const { fullName, email, phone, date, address, bank } = req.body;
+    const updateResult = await profileUserCollection.updateOne(
+      {
+        username: decoded.username,
+      },
+      {
+        $set: {
+          fullName,
+          email,
+          phone,
+          date,
+          address,
+          bank,
+        },
+      },
+      { upsert: true }
+    );
+    if (updateResult.matchedCount === 0) {
+      // Sửa lỗi đánh máy ở đây
+      return res
+        .status(404)
+        .send('Không tìm thấy profile người dùng để cập nhật');
+    }
+    res.json({ message: 'Hô sơ được cập nhật thành công', updateResult }); // Sửa lỗi đánh máy ở đây
+  } catch (error) {
+    res.status(500).send('Có lỗi xảy ra trong quá trình cập nhật profile');
+  }
+});
 
 //Trả về json danh mục theo id
 router.get('/users/:id', async (req, res, next) => {
@@ -736,7 +799,7 @@ router.post('/users/login', async (req, res, next) => {
     const token = jwt.sign(
       { userId: user._id, username: user.username },
       'lock',
-      { expiresIn: '1h' }
+      { expiresIn: '3h' }
     );
 
     // Xác thực thành công, gửi token và thông tin người dùng
