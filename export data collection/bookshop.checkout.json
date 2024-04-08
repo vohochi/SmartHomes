@@ -1,0 +1,187 @@
+[{
+  "_id": {
+    "$oid": "66114927f87b105e174cea3a"
+  },
+  "userId": {
+    "$oid": "660e4be4520e797c28ff199d"
+  },
+  "orderStatus": "Đã thanh toán",
+  "paymentStatus": "fulfilled",
+  "createdAt": {
+    "$date": "2024-04-06T13:07:51.873Z"
+  },
+  "name": "vohochi",
+  "email": "chivo24101224iqwecloud@gmail.com",
+  "district": "An phú đông",
+  "phone": "+48 0357473205",
+  "address": "An phú đông",
+  "village": "12",
+  "zip": "10080",
+  "bank": "Ngân hàng TMCP Ngoại Thương Việt Nam",
+  "data": [
+    {
+      "id": 3,
+      "name": "Áo khoác da nam mùa đông",
+      "price": 320000,
+      "image": "jacket-5.jpg",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Áo jacket nam ",
+      "price": 420000,
+      "image": "jacket-1.jpg",
+      "quantity": 1
+    }
+  ],
+  "ship": "",
+  "note": "Giao nhanh",
+  "totalPrice": "740.000",
+  "confirmedAt": {
+    "$date": "2024-04-08T01:06:11.290Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66125cb0da66e4c4b8fa705f"
+  },
+  "userId": {
+    "$oid": "661259a4b97279fee7485a8c"
+  },
+  "orderStatus": "Đã thanh toán",
+  "paymentStatus": "fulfilled",
+  "createdAt": {
+    "$date": "2024-04-07T08:43:28.632Z"
+  },
+  "name": "Võ Hồ Chí",
+  "email": "baothanhthien@gmail.com",
+  "district": "Thạnh xuân",
+  "phone": "+48 0815843068",
+  "address": "Bình Tân",
+  "village": "12",
+  "zip": "71514",
+  "bank": "Ngân hàng Chính sách Xã hội",
+  "data": [
+    {
+      "id": 33,
+      "name": "Giày thể thao nam",
+      "price": 830000,
+      "image": "shoe-1.jpg",
+      "quantity": 4
+    },
+    {
+      "id": 50,
+      "name": "Túi xách nữ",
+      "price": 320000,
+      "image": "bag.jpg",
+      "quantity": 1
+    },
+    {
+      "id": 18,
+      "name": "Kính mát nữ",
+      "price": 320000,
+      "image": "glasses1.jpg",
+      "quantity": 1
+    }
+  ],
+  "ship": "",
+  "note": "Note",
+  "totalPrice": "1.470.000",
+  "confirmedAt": {
+    "$date": "2024-04-08T01:58:16.507Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6612d294172412596ae526e8"
+  },
+  "userId": {
+    "$oid": "65fb8275b8c43fb79713abdc"
+  },
+  "orderStatus": "processing",
+  "paymentStatus": "pending",
+  "createdAt": {
+    "$date": "2024-04-07T17:06:28.106Z"
+  },
+  "name": "MAINYC",
+  "email": "baothanhthien241023@gmail.com",
+  "district": "An phú đông",
+  "phone": "+48 0847060604",
+  "address": "An phú đông",
+  "village": "12",
+  "zip": "10080",
+  "bank": "Ngân hàng TMCP Tiên Phong",
+  "data": [
+    {
+      "id": 5,
+      "name": "Áo kiểu nữ ",
+      "price": 120000,
+      "image": "shirt-1.jpg",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Áo khoác da nam mùa đông",
+      "price": 320000,
+      "image": "jacket-5.jpg",
+      "quantity": 2
+    },
+    {
+      "id": 17,
+      "name": "Kính mát nam",
+      "price": 320000,
+      "image": "glasses1.jpg",
+      "quantity": 1
+    },
+    {
+      "id": 50,
+      "name": "Túi xách nữ",
+      "price": 320000,
+      "image": "bag.jpg",
+      "quantity": 1
+    }
+  ],
+  "ship": "",
+  "note": "Giao nhanh",
+  "totalPrice": "1.400.000"
+},
+{
+  "_id": {
+    "$oid": "66135bb780e655b9e6b6c918"
+  },
+  "userId": {
+    "$oid": "660e4be4520e797c28ff199d"
+  },
+  "orderStatus": "processing",
+  "paymentStatus": "pending",
+  "createdAt": {
+    "$date": "2024-04-08T02:51:35.582Z"
+  },
+  "name": "vohochi",
+  "email": "chivo24101224iqwecloud@gmail.com",
+  "district": "An phú đông",
+  "phone": "+48 0847060604",
+  "address": "An phú đông",
+  "village": "12",
+  "zip": "10080",
+  "bank": "Ngân hàng TMCP Ngoại Thương Việt Nam",
+  "data": [
+    {
+      "id": 2,
+      "name": "Áo jacket nam ",
+      "price": 420000,
+      "image": "jacket-1.jpg",
+      "quantity": 3
+    },
+    {
+      "id": 3,
+      "name": "Áo khoác da nam mùa đông",
+      "price": 320000,
+      "image": "jacket-5.jpg",
+      "quantity": 1
+    }
+  ],
+  "ship": "",
+  "note": "Đóng gói cẩn thận",
+  "totalPrice": "1.292.800"
+}]

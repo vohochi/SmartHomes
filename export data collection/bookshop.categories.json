@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "660d3c585f616d07ebe0b6b3"
+  },
+  "id": 1,
+  "name": "Túi Xách",
+  "image": "bag.svg",
+  "category": "bag",
+  "quantity": 50
+},
+{
+  "_id": {
+    "$oid": "660d3c585f616d07ebe0b6b4"
+  },
+  "id": 2,
+  "name": "Giày",
+  "image": "shoes.svg",
+  "category": "shoes",
+  "quantity": 50
+},
+{
+  "_id": {
+    "$oid": "660d3c585f616d07ebe0b6b5"
+  },
+  "id": 3,
+  "name": "Kính",
+  "image": "glasses.svg",
+  "category": "glasses",
+  "quantity": 50
+},
+{
+  "_id": {
+    "$oid": "660d3c585f616d07ebe0b6b6"
+  },
+  "id": 4,
+  "name": "Áo",
+  "image": "jacket.svg",
+  "category": "shirt",
+  "quantity": 50
+}]
