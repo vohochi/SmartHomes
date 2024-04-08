@@ -19,7 +19,6 @@ const showAddress = () => __awaiter(void 0, void 0, void 0, function* () {
             return bill.email == user.email;
         });
         const addressItem = bills[0];
-        console.log(addressItem);
         address1.innerHTML = `              <div class="row">
                 <div class="col-sm-6 mb-4 mb-sm-7">
                   <!-- Radio Checkbox -->
@@ -106,7 +105,6 @@ const showPayment = () => __awaiter(void 0, void 0, void 0, function* () {
             return bill.email == user.email;
         });
         const addressItem = bills[0];
-        console.log(addressItem);
         pay.innerHTML = `<ul class="list-group mb-3">
                 <!-- List Item -->
                 <li class="list-group-item">
@@ -120,8 +118,8 @@ const showPayment = () => __awaiter(void 0, void 0, void 0, function* () {
 
                   <div class="media">
                     <img
-                      class="avatar avatar-sm avatar-4by3 mr-3"
-                      src="assets\svg\brands\mastercard.svg"
+                      class="avatar avatar-sm avatar-4by3 mr-3" style="height: 50px"
+                      src="./images/svg/brands/mastercard.svg"
                       alt="Image Description"
                     />
 
@@ -162,7 +160,7 @@ const showPayment = () => __awaiter(void 0, void 0, void 0, function* () {
                 <!-- List Item -->
 
                 <!-- End List Item -->
-              </ul>`;
+                </ul>`;
     });
 });
 showPayment();
@@ -195,6 +193,12 @@ const showBill = () => __awaiter(void 0, void 0, void 0, function* () {
                     </td>
                   </tr>`;
         });
+        const btnSuccess = document.querySelectorAll('.btn-secondary');
+        btnSuccess.forEach((e) => {
+            if (e.textContent == ' Đã thanh toán') {
+                e.className = 'btn btn-success';
+            }
+        });
     });
 });
 showBill();
@@ -203,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const userData = JSON.parse(localStorage.getItem('user'));
     const logoutButton = document.getElementById('logout-btn');
     if (userData && userData.img) {
-        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image">`;
+        userActionButton.innerHTML = `<img src="./images/${userData.img}" id="userProfile" alt="User Image">`;
         logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
     }
     else {

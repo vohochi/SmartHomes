@@ -32,3 +32,15 @@
     border-bottom-right-radius: 16px;
   }
 }
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slider-item {
+  flex: none;
+  width: 100%;
+  scroll-snap-align: start;
+}

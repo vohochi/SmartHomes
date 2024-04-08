@@ -1,5 +1,42 @@
+import { Category } from './../models/categoriesModel';
 import { url, fetchAPI } from '../src/config/app.js';
-`<tr>
+import { IProductInterface, Bill } from '../models/checkoutModels.js';
+
+class CategoryModel implements IProductInterface {
+  async getAll(): Promise<Bill[]> {
+    const data = await fetchAPI(`${url}products/billCheckout`);
+    return data as Bill[];
+  }
+  async confirmBIll(id: string): Promise<void> {
+    const response = await fetchAPI(`${url}products/confirmCheckout/${id}`, {
+      method: 'PATCH',
+    });
+    if (response) {
+      window.location.reload();
+    }
+  }
+  async update(id: string, formData: FormData): Promise<void> {
+    const response = await fetchAPI(`${url}categories/update/${id}`, {
+      method: 'PUT',
+      body: formData, // Sử dụng FormData
+    });
+
+    // Nên xử lý phản hồi từ server trước khi tải lại trang
+    if (response) {
+      // Cập nhật thành công - xử lý kết quả tại đây nếu cần
+      window.location.reload();
+    } else {
+      // Có lỗi xảy ra - xử lý lỗi tại đây
+      const errorData = await response.json(); // Hoặc .text() nếu server không trả về JSON
+      // Để hạng thực tăng cường trải nghiệm người dùng, bạn có thể
+    }
+  }
+}
+const billCheckout = document.getElementById('billCheckout');
+const showAll = new CategoryModel();
+showAll.getAll().then((data) => {
+  data.map((bill) => {
+    billCheckout.innerHTML += `<tr>
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="ordersCheck1">
@@ -7,33 +44,31 @@ import { url, fetchAPI } from '../src/config/app.js';
                     </div>
                   </td>
                   <td class="table-column-pl-0">
-                    <a href="ecommerce-order-details.html">#35463</a>
+                    <a href="ecommerce-order-details.html">#${bill._id}</a>
                   </td>
-                  <td>Aug 17, 2020, 5:48 (ET)</td>
+                  <td>${bill.createdAt} (ET)</td>
                   <td>
-                    <a class="text-body" href="ecommerce-customer-details.html">Jase Marley</a>
-                  </td>
-                  <td>
-                    <span class="badge badge-soft-success">
-                      <span class="legend-indicator bg-success"></span>Paid
-                    </span>
-                  </td>
+<a class="text-body" href="ecommerce-customer-details.html" title="${bill.email}">${bill.email}</a>                  </td>
+                
                   <td>
                     <span class="badge badge-soft-info">
-                      <span class="legend-indicator bg-info"></span>Fulfilled
+                      <span class="legend-indicator bg-info"></span>${bill.paymentStatus}
                     </span>
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
-                      <img class="avatar avatar-xss avatar-4by3 mr-2" src="assets\svg\brands\mastercard.svg" alt="Image Description">
+                      <img class="avatar avatar-xss avatar-4by3 mr-2" src="./assets/svg/brands/mastercard.svg" alt="Image Description">
                       <span class="text-dark">&bull;&bull;&bull;&bull; 4242</span>
                     </div>
                   </td>
-                  <td>$256.39</td>
+                  <td>${bill.totalPrice}</td>
                   <td>
                     <div class="btn-group" role="group">
-                      <a class="btn btn-sm btn-white" href="ecommerce-order-details.html">
-                        <i class="tio-visible-outlined"></i> View
+                      <a class="btn btn-sm btn-success" id="${bill._id}" >
+                        <i class="tio-visible-outlined"></i> Xác nhận
+                      </a>
+                         <a class="btn btn-sm btn-white" >
+                        <i class="tio-visible-outlined"></i> view
                       </a>
                       
                       <!-- Unfold -->
@@ -79,3 +114,23 @@ import { url, fetchAPI } from '../src/config/app.js';
                   </td>
                 </tr>
 `;
+
+    const btnSuccess = document.querySelectorAll('.btn-success');
+    btnSuccess.forEach((el) => {
+      if (bill.paymentStatus == 'fulfilled') {
+        console.log(el);
+        el.className = 'btn btn-sm btn-light';
+        el.textContent = 'Đã Thanh toán';
+      }
+    });
+  });
+});
+const confirmBIll = new CategoryModel();
+window.addEventListener('click', (e) => {
+  const target = event.target as HTMLElement;
+  const btnSuccess = target.getAttribute('class');
+  const id = target.getAttribute('id');
+  if (btnSuccess == 'btn btn-sm btn-success') {
+    confirmBIll.confirmBIll(id);
+  }
+});

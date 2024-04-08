@@ -8827,14 +8827,14 @@
                       ></label>
                     </div>
                   </th>
-                  <th class="table-column-pl-0">Order</th>
-                  <th>Date</th>
-                  <th>Customer</th>
-                  <th>Payment status</th>
-                  <th>Fulfillment status</th>
-                  <th>Payment method</th>
-                  <th>Total</th>
-                  <th>Actions</th>
+                  <th class="table-column-pl-0">Đặt hàng</th>
+                  <th>Ngày</th>
+                  <th>Khách hàng</th>
+                  <th>Tình trạng hoàn thành</th>
+                  <th>Trạng thái</th>
+                  <th>Phương thức thanh toán</th>
+                  <th>Tổng cộng</th>
+                  <th>Hành động</th>
                 </tr>
               </thead>
 
@@ -10002,13 +10002,6 @@
               counterInfo: '#datatableCounterInfo',
             },
           },
-          language: {
-            zeroRecords:
-              '<div class="text-center p-4">' +
-              '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-              '<p class="mb-0">No data to show</p>' +
-              '</div>',
-          },
         });
 
         $('#export-copy').click(function () {
@@ -10096,5 +10089,6 @@
           '<script src="./assets/vendor/babel-polyfill/polyfill.min.js"><\/script>'
         );
     </script>
+    <script type="module" src="./dist/src/checkout.js"></script>
   </body>
 </html>

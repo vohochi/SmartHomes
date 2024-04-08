@@ -184,6 +184,7 @@ router.get('/reset-password/:token', async (req, res) => {
 router.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;
+  console.log(password);
   const db = await connectDb();
   const userCollection = db.collection('users');
   const user = await userCollection.findOne({

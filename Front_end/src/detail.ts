@@ -141,7 +141,7 @@ fetch(`http://localhost:3000/api/products/${id}`)
 `;
   });
 
-const endDate = new Date(2024, 3, 5, 23, 59, 59); // Ngày 25/12/2024 23:59:59
+const endDate = new Date(2024, 3, 10, 23, 59, 59); // Ngày 25/12/2024 23:59:59
 
 const updateCountdown = () => {
   const now = new Date();
@@ -216,10 +216,14 @@ const addCart = async (id: number) => {
   console.log(cart);
   // Lưu Giỏ được cập nhật trở lại LocalStorage
   localStorage.setItem('cart', JSON.stringify(cart));
-  alert('Thêm vào giỏ hàng thành công');
+  const count = document.getElementById('count');
+  if (count) {
+    count.textContent = cart.length.toString();
+  }
   const userConfirmed = confirm(
     'Thêm vào giỏ hàng thành công. Bạn có muốn chuyển đến giỏ hàng không?'
   );
+
   inputNumber.value = '1';
   if (userConfirmed) {
     window.location.href = 'cart.html';
@@ -255,3 +259,34 @@ const count = document.getElementById('count');
 if (count) {
   count.textContent = cart.length.toString();
 }
+// profile
+document.addEventListener('DOMContentLoaded', function () {
+  const userActionButton = document.getElementById('user-action-btn');
+  const userData = JSON.parse(localStorage.getItem('user'));
+  const logoutButton = document.getElementById('logout-btn');
+
+  if (userData && userData.img) {
+    // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
+    userActionButton.innerHTML = `    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
+    logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+  } else {
+    // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập
+    userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const logoutButton = document.getElementById('logout-btn');
+
+  logoutButton.addEventListener('click', function () {
+    // Xóa token và thông tin người dùng khỏi localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    // Chuyển hướng người dùng về trang đăng nhập hoặc trang chủ
+    window.location.href = 'login.html'; // Thay 'login.html' bằng trang đăng nhập của bạn
+  });
+});

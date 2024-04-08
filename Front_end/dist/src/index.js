@@ -555,18 +555,38 @@ const addCart = (id) => __awaiter(void 0, void 0, void 0, function* () {
 const productData = localStorage.getItem('cart');
 const cart = productData ? JSON.parse(productData) : [];
 const count = document.getElementById('count');
-const sliderItem = document.getElementsByClassName('slider-item');
 if (count) {
     count.textContent = cart.length.toString();
 }
+const items = document.querySelectorAll('.slider-item');
+const totalItems = items.length;
+let currentIndex = 0;
+function goToSlide(index) {
+    if (index >= 0 && index < totalItems) {
+        currentIndex = index;
+        const scrollX = items[index].clientWidth * index;
+        document.querySelector('.slider-container').scrollTo({
+            left: scrollX,
+            behavior: 'smooth',
+        });
+    }
+}
+function nextSlide() {
+    goToSlide((currentIndex + 1) % totalItems);
+}
+setInterval(nextSlide, 3000);
 document.addEventListener('DOMContentLoaded', function () {
     const userActionButton = document.getElementById('user-action-btn');
     const userData = JSON.parse(localStorage.getItem('user'));
     const logoutButton = document.getElementById('logout-btn');
     if (userData && userData.img) {
-        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
-        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">
+        userActionButton.innerHTML = `
+    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
+        logoutButton.innerHTML = `
+    <img src="assets/images/shutdown.png" alt="">
     `;
+        logoutButton.addEventListener('click', function (event) {
+        });
     }
     else {
         userActionButton.innerHTML = `
@@ -602,12 +622,23 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'login.html';
         });
     }
+    const userBtn = document
+        .getElementById('user-action-btn')
+        .querySelector('img');
+    if (userBtn) {
+        userBtn.addEventListener('click', (e) => {
+            window.location.href = 'profile.html';
+        });
+    }
 });
 document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.getElementById('logout-btn');
     logoutButton.addEventListener('click', function () {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        window.location.href = 'login.html';
+        const confirmLogout = confirm('Bạn có muốn đăng xuất?');
+        if (confirmLogout) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
     });
 });

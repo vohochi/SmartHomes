@@ -32,5 +32,6 @@ export interface IUserInterface {
   update(id: string, data: User): Promise<void>;
   delete(id: string): Promise<void>;
   lock(id: string): Promise<User>;
+  unlock(id: string): Promise<User>;
   // Thêm bất kỳ phương thức nào khác cần thiết cho interface User
 }

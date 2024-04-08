@@ -81,6 +81,16 @@ class UserModel {
             return data;
         });
     }
+    unlock(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = yield fetchAPI(`${url}users/unlock/${id}`);
+            if (!data) {
+                throw new Error('Không tìm thấy Email');
+            }
+            alert(`Đã khóa user có email là: ${data.email}`);
+            return data;
+        });
+    }
     searchValue(value) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield fetchAPI(`${url}users/search/${value}`);
@@ -97,16 +107,18 @@ class UserModel {
 const showUsers = new UserModel();
 const getUser = new UserModel();
 const lockUser = new UserModel();
+const unlockUser = new UserModel();
 const searchUser = new UserModel();
 const updateUser = new UserModel();
 const createUser = new UserModel();
 const deleteUser = new UserModel();
-showUsers.getAll().then((data) => {
-    const users = document.getElementById('users');
-    users.innerHTML = '';
-    data
-        .map((user) => {
-        users.innerHTML += ` <tr>
+window.addEventListener('DOMContentLoaded', (e) => {
+    showUsers.getAll().then((data) => {
+        const users = document.getElementById('users');
+        users.innerHTML = '';
+        data
+            .map((user) => {
+            users.innerHTML += ` <tr>
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
                       <input
@@ -171,7 +183,7 @@ ${user.password}                  </td>
                       </div>
                     </div>
                   </td>
-                  <td>Employee</td>
+                  <td>User</td>
                   <td>
                     <div
                       id="editUserPopover"
@@ -199,19 +211,45 @@ ${user.password}                  </td>
                     </div>
                   </td>
                 </tr>`;
-    })
-        .join('');
+        })
+            .join('');
+        const human = document.getElementById('users');
+        const rows = human.querySelectorAll('tr');
+        rows.forEach((row) => {
+            const htmlElement = row;
+            console.log(htmlElement);
+            if (htmlElement.classList.contains('lock')) {
+                console.log('ok');
+                htmlElement.style.opacity = '0.5';
+            }
+        });
+    });
+    window.addEventListener('click', (e) => {
+        const target = e.target;
+        const data_target = target.getAttribute('data-target');
+        const tr = target.closest('tr');
+        const id = target.getAttribute('id');
+        if (target.closest('i')) {
+            if (target.classList.contains('tio-lock')) {
+                target.classList.replace('tio-lock', 'tio-unlock');
+            }
+            else {
+                target.classList.replace('tio-unlock', 'tio-lock');
+            }
+        }
+        if (data_target == '#lockUser') {
+            if (tr.classList.contains('lock')) {
+                tr.classList.remove('lock');
+                tr.style.opacity = '1';
+                unlockUser.unlock(id);
+                alert('Bạn đã mở khóa tài khoản của user');
+            }
+            else {
+                tr.classList.add('lock');
+                tr.style.opacity = '0.1';
+                lockUser.lock(id);
+                alert('Bạn đã khóa tài khoản của user');
+            }
+        }
+    });
 });
-window.addEventListener('click', (e) => {
-    const target = e.target;
-    const data_target = target.getAttribute('data-target');
-    const tr = target.closest('tr');
-    const id = target.getAttribute('id');
-    if (data_target == '#lockUser') {
-        tr.className = 'lock';
-        lockUser.lock(id);
-    }
-});
-const users = document.getElementById('users');
-const rows = users.querySelectorAll('tr');
-console.log(rows);

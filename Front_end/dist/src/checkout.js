@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const userData = JSON.parse(localStorage.getItem('user'));
     const logoutButton = document.getElementById('logout-btn');
     if (userData && userData.img) {
-        userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image">`;
+        userActionButton.innerHTML = `    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
         logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
     }
     else {

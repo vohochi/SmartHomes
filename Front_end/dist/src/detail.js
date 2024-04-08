@@ -142,7 +142,7 @@ fetch(`http://localhost:3000/api/products/${id}`)
 </div>;
 `;
 });
-const endDate = new Date(2024, 3, 5, 23, 59, 59);
+const endDate = new Date(2024, 3, 10, 23, 59, 59);
 const updateCountdown = () => {
     const now = new Date();
     const diff = endDate.getTime() - now.getTime();
@@ -192,7 +192,10 @@ const addCart = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
     console.log(cart);
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Thêm vào giỏ hàng thành công');
+    const count = document.getElementById('count');
+    if (count) {
+        count.textContent = cart.length.toString();
+    }
     const userConfirmed = confirm('Thêm vào giỏ hàng thành công. Bạn có muốn chuyển đến giỏ hàng không?');
     inputNumber.value = '1';
     if (userConfirmed) {
@@ -226,3 +229,27 @@ const count = document.getElementById('count');
 if (count) {
     count.textContent = cart.length.toString();
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const userActionButton = document.getElementById('user-action-btn');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const logoutButton = document.getElementById('logout-btn');
+    if (userData && userData.img) {
+        userActionButton.innerHTML = `    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
+        logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
+    }
+    else {
+        userActionButton.innerHTML = `
+            <a href="login.html">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        `;
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = 'login.html';
+    });
+});

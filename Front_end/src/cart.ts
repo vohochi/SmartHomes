@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (userData && userData.img) {
     // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
-    userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
+    userActionButton.innerHTML = `    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
     logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
   } else {
     // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập

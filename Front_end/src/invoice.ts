@@ -14,7 +14,6 @@ const showAddress = async () => {
     });
 
     const addressItem = bills[0];
-    console.log(addressItem);
     address1.innerHTML = `              <div class="row">
                 <div class="col-sm-6 mb-4 mb-sm-7">
                   <!-- Radio Checkbox -->
@@ -105,7 +104,6 @@ const showPayment = async () => {
     });
 
     const addressItem = bills[0];
-    console.log(addressItem);
     pay.innerHTML = `<ul class="list-group mb-3">
                 <!-- List Item -->
                 <li class="list-group-item">
@@ -119,8 +117,8 @@ const showPayment = async () => {
 
                   <div class="media">
                     <img
-                      class="avatar avatar-sm avatar-4by3 mr-3"
-                      src="assets\svg\brands\mastercard.svg"
+                      class="avatar avatar-sm avatar-4by3 mr-3" style="height: 50px"
+                      src="./images/svg/brands/mastercard.svg"
                       alt="Image Description"
                     />
 
@@ -161,7 +159,7 @@ const showPayment = async () => {
                 <!-- List Item -->
 
                 <!-- End List Item -->
-              </ul>`;
+                </ul>`;
   });
 };
 showPayment();
@@ -198,6 +196,12 @@ const showBill = async () => {
                     </td>
                   </tr>`;
     });
+    const btnSuccess = document.querySelectorAll('.btn-secondary');
+    btnSuccess.forEach((e) => {
+      if (e.textContent == ' Đã thanh toán') {
+        e.className = 'btn btn-success';
+      }
+    });
   });
 };
 showBill();
@@ -209,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (userData && userData.img) {
     // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
-    userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image">`;
+    userActionButton.innerHTML = `<img src="./images/${userData.img}" id="userProfile" alt="User Image">`;
     logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">`;
   } else {
     // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập

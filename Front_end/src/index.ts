@@ -649,17 +649,29 @@ const addCart = async (id: number) => {
 const productData = localStorage.getItem('cart');
 const cart = productData ? JSON.parse(productData) : [];
 const count = document.getElementById('count');
-const sliderItem = document.getElementsByClassName('slider-item');
 if (count) {
   count.textContent = cart.length.toString();
 }
-// slide show
-// const slideShow = document.getElementById('slideShow').children;
-// console.log(slideShow);
-// setInterval(() => {
-//   for (let i = 0; i <= slideShow.length; i++)
-// }, 1000);
+const items: NodeListOf<Element> = document.querySelectorAll('.slider-item');
+const totalItems: number = items.length;
+let currentIndex: number = 0;
 
+function goToSlide(index: number): void {
+  if (index >= 0 && index < totalItems) {
+    currentIndex = index;
+    const scrollX: number = items[index].clientWidth * index;
+    document.querySelector('.slider-container')!.scrollTo({
+      left: scrollX,
+      behavior: 'smooth',
+    });
+  }
+}
+
+function nextSlide(): void {
+  goToSlide((currentIndex + 1) % totalItems);
+}
+
+setInterval(nextSlide, 3000);
 // profile
 document.addEventListener('DOMContentLoaded', function () {
   const userActionButton = document.getElementById('user-action-btn');
@@ -668,9 +680,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (userData && userData.img) {
     // Nếu người dùng đã đăng nhập, thay đổi nội dung của nút để hiển thị ảnh
-    userActionButton.innerHTML = `<img src="../../public/images/${userData.img}" id="userProfile" alt="User Image"> `;
-    logoutButton.innerHTML = `<img src="assets/images/shutdown.png" alt="">
+    // ../../public/images/${userData.img}
+    userActionButton.innerHTML = `
+    <img src="./images/${userData.img}" id="userProfile" alt="User Image"> `;
+    logoutButton.innerHTML = `
+    <img src="assets/images/shutdown.png" alt="">
     `;
+
+    // Thêm sự kiện click vào nút logout
+    logoutButton.addEventListener('click', function (event) {
+      // Hiển thị hộp thoại xác nhận
+    });
   } else {
     // Nếu người dùng chưa đăng nhập, để nguyên nút đăng nhập
     userActionButton.innerHTML = `
@@ -708,16 +728,31 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html';
       });
   }
+  const userBtn = document
+    .getElementById('user-action-btn')
+    .querySelector('img');
+  if (userBtn) {
+    userBtn.addEventListener('click', (e) => {
+      window.location.href = 'profile.html';
+    });
+  }
 });
 document.addEventListener('DOMContentLoaded', function () {
+  // Lấy nút đăng xuất bằng ID
   const logoutButton = document.getElementById('logout-btn');
 
+  // Thêm sự kiện click cho nút đăng xuất
   logoutButton.addEventListener('click', function () {
-    // Xóa token và thông tin người dùng khỏi localStorage
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    // Hiển thị hộp thoại xác nhận đăng xuất
+    const confirmLogout = confirm('Bạn có muốn đăng xuất?');
+    if (confirmLogout) {
+      // Người dùng xác nhận đăng xuất
+      // Xóa token và thông tin người dùng khỏi localStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
 
-    // Chuyển hướng người dùng về trang đăng nhập hoặc trang chủ
-    window.location.href = 'login.html';
+      // Chuyển người dùng về trang đăng nhập
+      window.location.href = 'login.html';
+    }
   });
 });

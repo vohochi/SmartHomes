@@ -133,6 +133,80 @@ router.post('/products/billCheckout', async (req, res) => {
       .json({ message: 'Lỗi khi lưu thông tin thanh toán.', error: error });
   }
 });
+const { ObjectId } = require('mongodb');
+
+// confirmCheckout
+router.patch('/products/confirmCheckout/:billId', async (req, res) => {
+  const billId = req.params.billId; // Lấy ID hóa đơn từ URL
+  // Kết nối đến cơ sở dữ liệu
+  const db = await connectDb();
+  const checkoutCollection = db.collection('checkout');
+
+  try {
+    // Cập nhật trạng thái của hóa đơn
+    const result = await checkoutCollection.updateOne(
+      { _id: new ObjectId(billId) },
+      {
+        $set: {
+          paymentStatus: 'fulfilled',
+          orderStatus: 'Đã thanh toán',
+          confirmedAt: new Date(),
+        },
+      }
+    );
+
+    if (result.modifiedCount === 0) {
+      return res
+        .status(404)
+        .json({ message: 'Không tìm thấy hóa đơn để cập nhật.' });
+    }
+
+    // Trả về phản hồi thành công
+    res.status(200).json({
+      message: 'Hóa đơn đã được xác nhận thành công.',
+      result: result,
+    });
+  } catch (error) {
+    // Xử lý lỗi nếu có
+    res
+      .status(500)
+      .json({ message: 'Lỗi khi xác nhận hóa đơn.', error: error });
+  }
+});
+
+// Lấy thông tin chi tiết của hóa đơn theo ID
+
+router.get('/products/confirmCheckout/:billId', async (req, res) => {
+  let db, checkoutCollection;
+  try {
+    const billId = req.params.billId;
+    db = await connectDb();
+    checkoutCollection = db.collection('checkout');
+
+    if (!ObjectId.isValid(billId)) {
+      return res.status(400).json({ message: 'ID hóa đơn không hợp lệ.' });
+    }
+
+    const bill = await checkoutCollection.findOne({
+      _id: new ObjectId(billId),
+    });
+
+    if (!bill) {
+      return res
+        .status(404)
+        .json({ message: 'Không tìm thấy hóa đơn với ID này.' });
+    }
+
+    res.status(200).json(bill);
+  } catch (error) {
+    console.error('Lỗi khi lấy thông tin hóa đơn:', error);
+    res.status(500).json({
+      message: 'Lỗi khi lấy thông tin hóa đơn.',
+      error: error.toString(),
+    });
+  }
+});
+
 // check token
 router.post('/token/verify', (req, res) => {
   const { token } = req.body;
@@ -762,7 +836,6 @@ router.post('/users/register', upload.single('img'), async (req, res, next) => {
     username,
     img,
   });
-  res.redirect('login.html');
 });
 // login
 
@@ -860,7 +933,7 @@ router.post('/users/forgot-password', async (req, res) => {
     <p>  ${new Date().toLocaleString()} </p>
       <p>Bạn đã yêu cầu đặt lại mật khẩu.</p>
       <p>Nhấp vào liên kết này để đặt lại mật khẩu của bạn:</p>
-      <a href="http://localhost:50494/Front_end/resetPassword.html?token=${resetToken}">Đặt lại mật khẩu</a>
+      <a href="http://localhost:52973/Front_end/resetPassword.html?token=${resetToken}">Đặt lại mật khẩu</a>
       `;
     const htmlContent1 = `
       <p>Bạn đã yêu cầu đặt lại mật khẩu.</p>
@@ -1071,7 +1144,8 @@ router.put(
     try {
       let image = req.file ? req.file.originalname : null;
       const { id } = req.params;
-      let { name, category, quantity } = req.body; // 'image' không được lấy từ body vì sẽ xử lý ảnh riêng
+      let { name, category, quantity } = req.body;
+      console.log(image);
       const db = await connectDb();
       const categoryCollection = db.collection('categories');
 
